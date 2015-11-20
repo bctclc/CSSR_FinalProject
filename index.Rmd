@@ -20,7 +20,7 @@ source("Analysis/Analysis.R")
 
 <!-- Header -->
 <div class="rect1"></div>
-<div class="topbar"><code>networkD3</code>:</div> <div class="topbarsub">D3 JavaScript Network Graphs from R</div>
+<div class="topbar"><code>Deutsche Willkommenskultur</code>:</div> <div class="topbarsub">Where refugee initiatives exist</div>
 
 <div class="rect1"></div>
 
@@ -85,7 +85,7 @@ It currently supports three types of network graphs:
 
 <!-- Install -->
 
-```{r, include=FALSE}
+```{r}
 library(ggmap)
 GermanyMap <- qmap('Germany', zoom = 6, source = "stamen", maptype = "toner")
 FinalMap <- GermanyMap + 
@@ -94,6 +94,7 @@ FinalMap <- GermanyMap +
 ```
 
 ```{r}
+print(GermanyMap)
 print(FinalMap)
 ```
 
