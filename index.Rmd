@@ -85,6 +85,15 @@ It currently supports three types of network graphs:
 
 <!-- Install -->
 
+```{r, include=FALSE}
+library(ggmap)
+GermanyMap <- qmap('Germany', zoom = 6)
+print(GermanyMap)
+FinalMap <- GermanyMap + 
+              geom_point(aes(x=Longitude, y=Latitude), data=Coordinates)
+```
+
+
 <h2><i class="fa fa-download"></i> Install</h2>
 
 **networkD3** works very well with the most recent version of
