@@ -1,0 +1,227 @@
+---
+title: "German Willkommenskultur - Where and Why?"
+author: "Lisa Schmid and Christopher Cosler"
+subtitle: "HSoG, Fall 2015, class taught by Christopher Gandrud"
+date: "November 13, 2015"
+output: 
+  pdf_document:
+    fig_caption: yes
+    number_sections: yes
+bibliography:
+- Rpackages.bib
+- Literature.bib           
+---
+
+```{r, include = FALSE}
+# Load source file
+source("Analysis/Analysis.R")
+```
+
+Word count: 1785
+
+# Introduction and Research Question
+
+Germany is experiencing an unprecedented inflow of refugees. Parallel to the rise in the number of asylum seekers, the number of voluntary organizations (refugee initiatives) that offer help to the people arriving seemed to be increasing over the summer of 2015 as well and more and more citizens  volunteered in these organizations [@Spiegel2015; @Karakayali2015]. Politicians, social activists and researchers uniformly claim that this kind of help is an important building block in managing the challenge of welcoming and supporting the asylum seekers. Foreign media is astonished by this German "Willkommenskultur" [@NYPost2015].
+
+Surprisingly though, these organizations are unevenly distributed throughout the country. In our paper, we try to answer the following research question: What determines the existence of refugee initiatives?
+
+Our research proceeds as follows: We extract the location of existing refugee initiatives from a Google map, customized by ProAsyl [@ProAsyl2015]. We then link each initiative to its respective administrative district [data from @Geodaten2015] and a range of variables describing characteristics of the district. The data for the independent variables stems from @DESTATIS and @Regionalstatistik2015.
+
+Data collection, analysis and presentation are implemented in R [@CiteR].
+
+# Short Summary of Hypotheses
+
+What are the determinants of political participation? According to @Boehnke2011, socio-demographic (age, gender, education, family status), economic (income, employment status), and personality factors play a role role when trying to predict political participation. In this paper we will test the effect of age, gender, education, unemployment, GDP, population density, and number of refugees. In addition, we will control for East and West German districts and classical political participation, measured in voter turnout at the last German federal election in 2013.
+
+# Description of Data Sources
+
+We retrieve our data from three different sources:
+
+1. *ProAsyl map* ^[https://www.google.com/maps/d/viewer?mid=zc6TdvfelKuY.kUvriXoSREXw]
+2. *German Federal Agency for Cartography and Geodesy* ^[http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=19&gdz_user_id=0]
+3. *German Federal Statistical Office* ^[https://www-genesis.destatis.de/genesis/online]
+4. *German Regional Statistical Offices* ^[https://www.regionalstatistik.de/genesis/online]
+
+## Dependent Variable
+### List and Location of German Refugee Initiatives
+The number of refugee initiatives per district is scraped from a Google map customized by ProAsyl [@ProAsyl2015]. We exchanged emails with ProAsyl about their methodology. According to their answers, the entries in the map are based on (1) information from the local refugee councils (Flüchtlingsräte), (2) initiatives already known by ProAsyl, (3) initiatives which contacted ProAsyl after ProAsyl had promoted their map via social media and German news outlets. Each initiative is checked for whether their purpose really is to help refugees and what the possibilities of volunteering are. The map is updated more or less once a week; inactive initiatives are deleted. 
+
+In the R code, we download the data as a KML file using the link provided at the Google Map interface and the `GET` command from the `httr` package [@R-httr]. The link can be found in the Gather code. The KML file can easily be converted to characters, which allows us to search for the relevant data marked by the respective tags (we used `strapply` from the `gsubfn` package to extract the data [@R-gsubfn]). The result was a table with the coordinates, name, link and description of each initiative. The number of initiatives is constantly changing over time but the code is written in a way that it can handle the varying numbers.  
+
+### Shapefiles for German Districts
+The shapefiles for the German districts are retrieved from the German Federal Agency for
+Cartography and Geodesy Bundesamt für Kartographie and Geodäsie^[http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=19&gdz_user_id=0] (see print of map in Figure 1). We manually downloaded the map in UTM32 format as an automatic download is not possible. If you want to reproduce this step, simply store the file in a sub folder called "Data/Shapefile". The Gather code unpacks the zip and imports the correct data (using the `readOGR` function from the `rgdal` package [@R-rgdal]). The shape file is in UTM32 format and has to be converted to WGS84 format which we did with the `sptransform` function from the `sp` package [@R-sp]. 
+
+```{r, echo=FALSE, fig.align='center', fig.cap="Administrative Districts (Landkreise) in Germany", fig.width=20, fig.height=20}
+plot(Shapes_krs)
+```
+
+To identify in which district the respective initiatives are located, the coordinates are first converted into spatial coordinates with the `coordinates` function and then located in the respective districts with the `over` method, both from the `sp` package as well [@R-sp]. The result is a table where for each district the number of initiatives is recorded.
+
+
+```{r, echo=FALSE, fig.cap="Administrative Districts (Landkreise) in Germany and Refugee Initiatives (Dots)", fig.width=20, fig.height=20}
+plot(Shapes_krs)
+points(Coordinates$Longitude, Coordinates$Latitude, 
+       col = adjustcolor("black",0.4),
+       pch = 19, 
+       cex = 0.5)
+```
+
+
+## Independent Variables
+
+The independent variables were gathered from two sources: the German Federal Statistical Office and the Regional Statistical Offices. As the API is not free of charge for both offices, the data had to be downloaded manually from the two webpages. All data sets can be found in the sub-folder "Data/Independent Variables" on GitHub.^[https://github.com/ChristopherCosler/CSSR_DataAnalysis] No URLs leading to the pages from where to download the data sets can be provided, as they expire after a few days. Instead you find the specific table number, assigned to the data by the two platforms, in the Gather code. All data sets were downloaded as csv-files. No changes were made to the files before importing them into R. 
+
+### Old Age Dependency Ratio
+For testing our age hypothesis, we used age distribution data from @DESTATIS^[Table 12411-0017, downloaded on 11/7/2015, specified time period: 12/31/2014.]. From this data set we computed the Old Age Dependency Ratio. The Old Age Dependency Ratio is computed by dividing all persons aged 65 and above by all persons aged 15 to 65. When the number is above 1, it means that there are is an over-proportionate number of older persons in the population; when the number is below 1, it means that there is an over-proportionate number of younger persons in the population.
+
+### Gender Ratio
+For testing our gender hypothesis, we used gender distribution data from @DESTATIS^[Table 12411-0017, downloaded on 11/7/2015, specified time period: 12/31/2014.]. We computed the gender ratio by dividing the male population in a district by the female population. A gender ratio higher [lower] than 1 means there is an over-proportionate [under-proportionate] number of males in the district. 
+
+### Population with Abitur
+For our education hypothesis, we gathered data about the population with Abitur (high school degree) in a district from @Regionalstatistik2015^[Table AI003-2, downloaded on 11/8/2015, specified time period: 2013.]. The variable describes the percentage of persons with a high school degree from all persons having left school. 
+
+### GDP per Capita
+The GDP per capita data stems from @Regionalstatistik2015^[Table AI-N-10, downloaded on 11/8/2015, specified time period: 2012.]. It is measured in 1000 Euros.
+
+### Unemployment Rate
+We gathered the unemployment rate from @Regionalstatistik2015^[Table 659-71-4, downloaded on 11/8/2015, specified time period: 2014.]. The employment rate is the share of registered unemployed in the labor force and therefore includes percentages.
+
+### Population Density
+The data on the population density stems from @Regionalstatistik2015^[Table AI002-1, downloaded on 11/8/2015, specified time period: 2014.]. It is measured as inhabitants per square kilometer.
+
+### Refugee Ratio
+The latest data on the distribution of refugees in the German districts dates from 12/31/2013 [@Regionalstatistik2015]^[Table 661-31-4, downloaded on 11/8/2015, specified time period: 12/31/2013.]. However, as data from [@BAMF2015] shows, the number of asylum seekers had nearly doubled from 2012 to 2013, already portraying a clear trend. We compute the number of refugees per 1000 citizens. 
+
+### East West Dummy
+We create a dummy variable distinguishing West from East German districts, with 1 being East and 0 being West German.
+
+### Voter Turnout
+In order to control for "classical political participation" we include data on the voter turnout (in percent) at the last German federal election in 2013 from @Regionalstatistik2015^[Table 252-01-4, downloaded on 11/13/2015, specified time period: 9/22/2013.]. 
+
+After having imported the data sets into R, we cleaned them and created a series of new, more useful variables for our purpose. In a next step we merged all data sets (both independent and dependent variable) and provide some descriptive and inferential statistics in the next section.
+
+# Analysis
+
+## Descriptive Statistics
+
+```{r, results = "asis", echo = FALSE, message = FALSE}
+stargazer(Data.fin[, c(3:12)], title = "Summary Statistics", header = FALSE,
+          covariate.labels = c("Number of Refugee Initiatives per District", 
+                               "Old Age Dependency Ratio", 
+                               "Gender Ratio", 
+                               "Population with Abitur (percentage)",
+                               "GDP per Capita in 1000 Euros", 
+                               "Unemployment Rate", 
+                               "Population Density", 
+                               "Refugee Ratio", 
+                               "East-West Dummy", 
+                               "Voter Turnout (percentage)"),
+          digits = 1)
+```
+
+```{r, echo=FALSE, fig.cap="Histogram of Number of Initiatives per District", message = FALSE}
+ggplot(Data.fin, aes(x=numb.ini)) +
+       xlab("Number of Initiatives per District") +
+       ylab("Frequency") + 
+      geom_histogram()
+```
+
+```{r, echo=FALSE, fig.cap="Old Age Dependency Ratio", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$oldage.dependency, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+levels <- c("0", "1", "2", "3-4", "5-6", "7-8", "9 or higher")
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="Gender Ratio", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$gender.ratio, 9, right = FALSE)
+colours <- brewer.pal(9,"PuOr") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo = FALSE, fig.cap = "Population with Abitur (percentage)", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$abitur.per, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="GDP per capita in 1000 Euros", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$GDP.cap, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="Unemployment Rate", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$unemployment, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="Population Density", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$pop.dens, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="Refugee Ratio", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$refugee.ratio, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+```{r, echo=FALSE, fig.cap="Voter turnout", fig.width=20, fig.height=20}
+classes <- cut(Data.fin$turnout, 9, right = FALSE)
+colours <- brewer.pal(9,"Greys") # Pick color palette
+plot(Shapes_krs, border = "darkgrey", col = colours[classes])
+legend("right", fill = colours, legend = levels)
+```
+
+
+## Shiny App
+
+In addition to the descriptive statistics, we coded a Shiny web application [@R-shiny] and uploaded it to R Studio's`shinyapps.io`^[https://www.shinyapps.io]. The web app uses the `leaflet` package [@R-leaflet] to plot the initiatives on an openstreetmap and allows for coloring the districts according to the independent variables. The app however is not yet finished, most notably a legend is missing for the colors and the map fully reloads when the variables are changed. We plan on improving this for the final project. The map can be found at https://christophercosler.shinyapps.io/RefugeeApp and the code is on Git Hub in the Shiny folder.
+
+
+## Inferential Statistics
+
+
+```{r, results='asis', echo=FALSE}
+labels <- c("Old Age Dependency Ratio",
+            'Gender Ratio',
+            "Population with Abitur (percentage)",
+            "GDP per Capita in 1000 Euros",
+            'Unemployment Rate',
+            'Population Density',
+            'Number of Refugee Initiatives per District',
+            "East-West Dummy",
+            "Voter Turnout (percentage)")
+stargazer(pois, qpois, nbin, 
+          type='latex', # For PDF change style to latex, otherwise html
+          title = "Poisson, Quasi-Poisson and Negative Binomial Regression Estimates for the number of Refugee Initiatives",
+          digits = 2,
+          header = FALSE,
+          covariate.labels = labels,
+          column.labels = c('Poisson', 'Quasi-Poisson', 'Negative Binomial'),
+          model.names = FALSE,
+          dep.var.labels = "Number of refugee initiatives per district"
+          )
+```
+
+
+We already calculated some inferential statistics, but this should only be seen as first steps towards the final paper. As discussed above, the number of refugee initiatives per district can be seen as count data. Modeling count variables is a common task, not only social sciences [@Zeileis2007]. The classical method is a Poisson regression, which is limited though if over-dispersion or excess zeros are present [@Cameron2013]. To deal with over-dispersion, sandwich covariances, quasi-Poisson models and especially negative binomial regressions are appropriate. If the data contains excess zeros, hurdle models or zero-inflated models should be used. There is however no reason for assuming to different data generating process in the given scenario, therefore models that account for excess zeros should not be chosen.
+
+In the following, first a Poisson and a quasi-Poisson regression will be implemented using the `gml` function from the `stats` package [@CiteR], afterwards a negative binomial regression with the `MASS` package [@R-MASS].
+
+As a first attempt to capture the relationship between the dependent variables and the predictors, we fit a standard Poisson regression model, the simplest distribution used for modeling count data [@Zeileis2007]. The Age Dependency ratio, Gender Ratio, Education, GDP per capita, Population Density, the East-West dummy and the turnout are highly significant. These results might however be too optimistic, as over-dispersion is likely to be present. If we implement a test for overdispersion using `dispersiontest` from the [@R-AER] package, based on [@Cameron2013], the result is c = `r overdispersion_alpha`, with c > 0 meaning that overdispersion is present, at a significance level smaller than 0.001.
+
+As there are strong signs of over-dispersion, a quasi-Poisson regression might be a more appropriate method. The results however are almost identical, the only difference is that the gender ration is not significant at a level of 0.05 anymore. As a more formal way to account for over-dispersion in the data [@Cameron2013], a negative binomial regression is calculated. The regressor only slightly change, but the gender ratio is now highly significant again. The results will be interpreted in more depth in the actual research paper including predictions to meaningfully interpret the estimates, but we can already draw the conclusion that the type of model chosen does not strongly influence the results and the only unemployment and population density are potentially significant.
+
+# Bibliography
