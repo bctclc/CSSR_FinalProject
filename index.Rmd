@@ -26,41 +26,22 @@ source("Analysis/Analysis.R")
 
 <p class="pull-right">
 <strong>
-Fork me on <a href="https://github.com/christophergandrud/networkD3"><i class="fa fa-github fa-lg"></i></a>
+Fork this project on <a href="https://github.com/ChristopherCosler/CSSR_FinalProject/"><i class="fa fa-github fa-lg"></i></a>
 </strong>
 </p>
-
-v`r packageVersion('networkD3')` [![CRAN Version](http://www.r-pkg.org/badges/version/networkD3)](http://cran.r-project.org/package=networkD3)
-
 
 <p class="pull-right">
 <strong>
-Issues/suggestions <a href="https://github.com/christophergandrud/networkD3/issues"><i class="fa fa-exclamation-circle"></i></a>
+Issues/suggestions <a href="https://github.com/ChristopherCosler/CSSR_FinalProject/issues"><i class="fa fa-exclamation-circle"></i></a>
 </strong>
 </p>
 
-[Christopher Gandrud](http://christophergandrud.blogspot.com/),
-[JJ Allaire](https://github.com/jjallaire), & [Kent Russell](http://buildingwidgets.com)
+[Christopher Cosler](https://github.com/ChristopherCosler/) &
+[Lisa Schmid](https://github.com/lisakatharina)
 
 `r Sys.Date()`
 
-<!-- Banner image -->
-<div class="rect1"></div>
-<div class="circlel"></div>
-<div class="circlel"></div>
-<div class="circlel"></div>
-<div class="circlel"></div>
-<div class="circlel"></div>
-
-<div class="circler"></div>
-<div class="circler"></div>
-<div class="circler"></div>
-<div class="circler"></div>
-<div class="circler"></div>
-
-<br><br><br><br><br>
-
-<!-- About -->
+<!-- Introduction -->
 
 <h2><i class="fa fa-thumb-tack"></i> About</h2>
 
@@ -94,7 +75,6 @@ FinalMap <- GermanyMap +
 ```
 
 ```{r}
-print(GermanyMap)
 print(FinalMap)
 ```
 
