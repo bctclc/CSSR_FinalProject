@@ -69,8 +69,8 @@ library(stargazer)
 library(knitr)
 
 ### Set working directory, please change if necessary!
-try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_Dataanalysis/"), silent = TRUE)
-try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_DataAnalysis"), silent = TRUE)
+#try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_Dataanalysis/"), silent = TRUE)
+#try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_DataAnalysis"), silent = TRUE)
 
 
 ##############################
