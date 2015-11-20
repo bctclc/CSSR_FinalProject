@@ -1,0 +1,29 @@
+---
+title: "Webpage for Final Project"
+author: "Lisa Schmid and Christopher Cosler"
+date: "November 20, 2015"
+output: 
+  html_document
+---
+
+```{r, include=FALSE}
+library(ggmap)
+```
+
+```{r, include = FALSE, cache=TRUE}
+# Load source file
+source("Analysis/Analysis.R")
+```
+
+```{r, include=FALSE}
+GermanyMap <- qmap('Germany', zoom = 6)
+print(GermanyMap)
+FinalMap <- GermanyMap + 
+              geom_point(aes(x=Longitude, y=Latitude), data=Coordinates)
+```
+
+```{r}
+print(FinalMap)
+```
+
+

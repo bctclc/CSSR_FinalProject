@@ -1,29 +1,261 @@
 ---
-title: "Webpage for Final Project"
-author: "Lisa Schmid and Christopher Cosler"
-date: "November 20, 2015"
-output: 
-  html_document
+output:
+    html_document:
+        theme: null
+        highlight: kate
+        self_contained: false
+        includes:
+            in_header: header.html
+            after_body: footer.html
 ---
 
-```{r, include=FALSE}
-library(ggmap)
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align='center')
+opts_chunk$set(dev='svg')
+opts_chunk$set(tidy=FALSE)
+opts_chunk$set(message=FALSE)
 ```
 
-```{r, include = FALSE, cache=TRUE}
-# Load source file
-source("Analysis/Analysis.R")
-```
+<!-- Header -->
+<div class="rect1"></div>
+<div class="topbar"><code>German "Willkommenskultur"</code>:</div> 
+<div class="topbarsub">Where Refugee initiatives exist</div>
 
-```{r, include=FALSE}
-GermanyMap <- qmap('Germany', zoom = 6)
-print(GermanyMap)
-FinalMap <- GermanyMap + 
-              geom_point(aes(x=Longitude, y=Latitude), data=Coordinates)
-```
+<div class="rect1"></div>
+<p class="pull-right">
+<strong>
+Fork this on <a href="https://github.com/ChristopherCosler/CSSR_FinalProject/">
+<i class="fa fa-github fa-lg"></i></a>
+</strong>
+</p>
+
+<p class="pull-right">
+<strong>
+Issues/suggestions <a href="https://github.com/ChristopherCosler/CSSR_FinalProject/"><i class="fa fa-exclamation-circle"></i></a>
+</strong>
+</p>
+
+[Christopher Cosler](https://github.com/christophercosler) & 
+[Lisa Schmid](https://github.com/lisakatharina)
+
+`r Sys.Date()`
+
+<!-- About -->
+
+<h2></i> Introduction</h2>
+
+This is a port of Christopher Gandrud's R package
+[d3Network](http://christophergandrud.github.io/d3Network/) for creating
+[D3](http://d3js.org/) network graphs to the
+[htmlwidgets](https://github.com/ramnathv/htmlwidgets) framework. The
+htmlwidgets framework greatly simplifies the package's syntax for exporting the
+graphs, improves integration with [RStudio's](http://www.rstudio.com/) Viewer
+Pane, [RMarkdown](http://rmarkdown.rstudio.com/), and
+[Shiny web apps](http://shiny.rstudio.com/).
+See <a href="#networkD3output">below</a> for examples.
+
+It currently supports three types of network graphs:
+
+- **Force directed networks** with <a href="#simple"><code>simpleNetwork</code></a> and
+<a href="#force"><code>forceNetwork</code></a>
+
+- **Sankey diagrams** with <a href="#sankey"><code>sankeyNetwork</code></a>
+
+- **[Reingold-Tilford Tree graphs](http://bl.ocks.org/mbostock/4339184)** with `treeNetwork`
+
+<!-- Install -->
+
+<h2><i class="fa fa-download"></i> Install</h2>
+
+**networkD3** works very well with the most recent version of
+[RStudio](http://www.rstudio.com/rstudio) (>=v0.99, [download](http://www.rstudio.com/products/rstudio/download/preview/)).
+When you use this version of RStudio, graphs will appear in the Viewer Pane. Not
+only does this give you a handy way of seeing and tweaking your graphs, but you
+can also export the graphs to the clipboard or a PNG/JPEG/TIFF/etc. file.
+
+The package can be downloaded from
+[CRAN](http://cran.r-project.org/web/packages/networkD3/index.html).
+
+<!-- Usage  -->
+
+<h2><i class="fa fa-code"></i> Usage</h2>
+
+For a full set of examples for each of the functions see
+[this page](https://github.com/christophergandrud/networkD3/blob/master/inst/examples/examples.R).
+
+**Note:** You are probably used to R's 1-based numbering (i.e. counting in R starts from 1). However, **networkD3** plots are created using JavaScript, which is [0-based](http://en.wikipedia.org/wiki/Zero-based_numbering). So, your data links will need to start from 0. See [this data set](https://raw.githubusercontent.com/christophergandrud/networkD3/master/JSONdata/energy.json) for example.
+
+<a href="#simple"><h3 id="simple"><code>> </code>simpleNetwork</code></h3></a>
+
+For very basic
+[force directed network](http://en.wikipedia.org/wiki/Force-directed_graph_drawing)
+graphics you can use `simpleNetwork`. For example:
 
 ```{r}
-print(FinalMap)
+# Load package
+library(networkD3)
+
+# Create fake data
+src <- c("A", "A", "A", "A",
+        "B", "B", "C", "C", "D")
+target <- c("B", "C", "D", "J",
+            "E", "F", "G", "H", "I")
+networkData <- data.frame(src, target)
+
+# Plot
+simpleNetwork(networkData)
 ```
 
+<a href="force"><h3 id="force"><code>> forceNetwork</code></h3></a>
 
+Use `forceNetwork` to have more control over the appearance of the forced
+directed network and to plot more complicated networks. Here is an example:
+
+```{r}
+# Load data
+data(MisLinks)
+data(MisNodes)
+
+# Plot
+forceNetwork(Links = MisLinks, Nodes = MisNodes,
+            Source = "source", Target = "target",
+            Value = "value", NodeID = "name",
+            Group = "group", opacity = 0.8)
+```
+
+From version 0.1.3 you can also allow scroll-wheel zooming by setting `zoom = TRUE`.
+
+<a href="#sankey"><h3 id="sankey"><code>> sankeyNetwork</code></h3></a>
+
+You can also create [Sankey diagrams](http://en.wikipedia.org/wiki/Sankey_diagram)
+with `sankeyNetwork`. Here is an example using downloaded JSON data:
+
+```{r}
+# Load energy projection data
+# Load energy projection data
+URL <- paste0(
+        "https://cdn.rawgit.com/christophergandrud/networkD3/",
+        "master/JSONdata/energy.json")
+Energy <- jsonlite::fromJSON(URL)
+# Plot
+sankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             units = "TWh", fontSize = 12, nodeWidth = 30)
+```
+
+<a href="#sankey"><h3 id="sankey"><code>> radialNetwork</code></h3></a>
+
+From version 0.2, tree diagrams can be created using `radialNetwork` or `diagonalNetwork`.
+
+```{r}
+URL <- paste0(
+        "https://cdn.rawgit.com/christophergandrud/networkD3/",
+        "master/JSONdata//flare.json")
+
+## Convert to list format
+Flare <- jsonlite::fromJSON(URL, simplifyDataFrame = FALSE)
+
+# Use subset of data for more readable diagram
+Flare$children = Flare$children[1:3]
+
+radialNetwork(List = Flare, fontSize = 10, opacity = 0.9)
+
+diagonalNetwork(List = Flare, fontSize = 10, opacity = 0.9)
+```
+
+<a href="#sankey"><h3 id="sankey"><code>> dendroNetwork</code></h3></a>
+
+From version 0.2, it is also possible to create dendrograms using `dendroNetwork`.
+
+```{r}
+hc <- hclust(dist(USArrests), "ave")
+
+dendroNetwork(hc, height = 600)
+```
+
+<h2 id="networkD3output"><i class="fa fa-floppy-o"></i> Output</h2>
+
+### Saving to an external stand alone HTML file
+
+Use `saveNetwork` to save a network to a stand alone HTML file:
+
+```{r, eval=FALSE}
+library(magrittr)
+
+simpleNetwork(networkData) %>%
+saveNetwork(file = 'Net1.html')
+```
+
+### Including in an RMarkdown file
+
+It is simple to include a **networkD3** graphic in an
+[RMarkdown](http://rmarkdown.rstudio.com/) file. Simply place the code to create
+the graph in a code chunk the same way you would any other plot. Checkout this
+[simple example](https://github.com/christophergandrud/networkD3/blob/master/inst/examples/examples.Rmd).
+
+### Including in Shiny web apps
+
+You can also easily include **networkD3** graphs in
+[Shiny web apps](http://shiny.rstudio.com/).
+
+In the *server.R* file create the
+graph by placing the function inside of `render*Network`, where the `*` is either
+`Simple`, `Force`, or `Sankey` depending on the graph type. For example:
+
+```{r, eval=FALSE}
+output$force <- renderForceNetwork({
+forceNetwork(Links = MisLinks, Nodes = MisNodes,
+            Source = "source", Target = "target",
+            Value = "value", NodeID = "name",
+            Group = "group", opacity = input$opacity)
+})
+```
+
+In the `shinyUI` part of your *app.R* file (for [single-file Shiny apps](http://shiny.rstudio.com/articles/single-file.html))
+include `*NetworkOutput` (with `*` as before, but starting with a lowercase
+letter). The argument placed in this function should be the element specified
+with `output`, e.g.:
+
+```{r, eval=FALSE}
+forceNetworkOutput("force")
+```
+
+You can run a simple example with the following code:
+
+```{r, eval=FALSE}
+shiny::runGitHub('christophergandrud/networkD3-shiny-example')
+```
+
+Full source code for this example can be found
+[here](https://github.com/christophergandrud/networkD3-shiny-example).
+
+### Saving as static PNG image
+
+You can use RStudio to save static images of **networkD3** plots as PNG files.
+Simply create your plot as usual in RStudio. The output should appear in the
+*Viewer* pane. Then click *Export* > *Save as Image...*. A new window will
+appear. You can use this window to manipulate the plot,
+resize it, and save the result as a PNG file.
+
+<img class="display" src="img/networkD3_save_PNG.gif" height=300 width=400 alt="RStudio-save-plot-as-image">
+
+
+<br><br>
+
+<hr>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'networkd3'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
