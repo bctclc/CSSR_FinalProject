@@ -53,11 +53,7 @@ Issues/suggestions <a href="https://github.com/ChristopherCosler/CSSR_FinalProje
 library(ggmap)
 GermanyMap <- qmap('Germany', zoom = 6)
 FinalMap <- GermanyMap + 
-              geom_point(aes(x=Longitude, y=Latitude), data=Coordinates) +
-              xlab('') + ylab('') +
-              theme(axis.ticks = element_blank(), 
-                axis.text.x = element_blank(),
-                axis.text.y = element_blank())
+              geom_point(aes(x=Longitude, y=Latitude), data=Coordinates) 
 ```
 
 ```{r}
