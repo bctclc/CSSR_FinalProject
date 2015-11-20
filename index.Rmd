@@ -15,6 +15,7 @@ opts_chunk$set(fig.align='center')
 opts_chunk$set(dev='svg')
 opts_chunk$set(tidy=FALSE)
 opts_chunk$set(message=FALSE)
+source("Analysis/Analysis.R")
 ```
 
 <!-- Header -->
