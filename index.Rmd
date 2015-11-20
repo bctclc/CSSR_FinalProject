@@ -69,7 +69,7 @@ It currently supports three types of network graphs:
 
 ```{r}
 library(ggmap)
-GermanyMap <- qmap('Germany', zoom = 6)
+GermanyMap <- qmap('Germany', zoom = 6, source = "stamen", maptype = "toner")
 FinalMap <- GermanyMap + 
               geom_point(aes(x=Longitude, y=Latitude), data=Coordinates)
 ```
