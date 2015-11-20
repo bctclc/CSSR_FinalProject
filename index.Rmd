@@ -39,7 +39,8 @@ Issues/suggestions <a href="https://github.com/ChristopherCosler/CSSR_FinalProje
 [Christopher Cosler](https://github.com/ChristopherCosler/) &
 [Lisa Schmid](https://github.com/lisakatharina)
 
-`r Sys.Date()`
+`r Sys.Date()` 
+`r Sys.time()` 
 
 <!-- Introduction -->
 
