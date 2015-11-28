@@ -1,0 +1,536 @@
+GENESIS-Tabelle: Temporär
+Regionalatlas Deutschland;;;;
+Indikatoren des Themenbereichs 'Bildung';;;;
+Regionalatlas Deutschland;;;;
+;;;Anteil Schulabgänger mit allgem. Hochschulreife;Anteil Schulabgänger ohne Hauptschulabschluss
+;;;Prozent;Prozent
+2013;DG;Deutschland;35,7;5,2
+2013;01;  Schleswig-Holstein;30,9;7,6
+2013;01001;      Flensburg, Kreisfreie Stadt;42,5;7,6
+2013;01002;      Kiel, Landeshauptstadt, Kreisfreie Stadt;41,4;7,7
+2013;01003;      Lübeck, Hansestadt, Kreisfreie Stadt;30,7;8,6
+2013;01004;      Neumünster, Kreisfreie Stadt;36,7;8,8
+2013;01051;      Dithmarschen, Landkreis;22,9;8,6
+2013;01053;      Herzogtum Lauenburg, Landkreis;28,0;8,6
+2013;01054;      Nordfriesland, Landkreis;22,3;7,2
+2013;01055;      Ostholstein, Landkreis;26,8;8,7
+2013;01056;      Pinneberg, Landkreis;35,0;6,5
+2013;01057;      Plön, Landkreis;23,1;8,1
+2013;01058;      Rendsburg-Eckernförde, Landkreis;26,5;8,1
+2013;01059;      Schleswig-Flensburg, Landkreis;23,9;8,5
+2013;01060;      Segeberg, Landkreis;28,7;7,2
+2013;01061;      Steinburg, Landkreis;26,9;7,0
+2013;01062;      Stormarn, Landkreis;45,3;4,4
+2013;02;  Hamburg;58,1;5,0
+2013;03;  Niedersachsen;29,8;5,1
+2013;031;    Braunschweig, Stat. Region;34,1;4,7
+2013;03101;      Braunschweig, Kreisfreie Stadt;46,3;5,9
+2013;03102;      Salzgitter, Kreisfreie Stadt;20,5;3,3
+2013;03103;      Wolfsburg, Kreisfreie Stadt;38,1;4,0
+2013;03151;      Gifhorn, Landkreis;25,8;4,7
+2013;03152;      Göttingen, Landkreis;41,6;4,3
+2013;03153;      Goslar, Landkreis;27,3;5,8
+2013;03154;      Helmstedt, Landkreis;31,4;6,0
+2013;03155;      Northeim, Landkreis;33,5;4,3
+2013;03156;      Osterode am Harz, Landkreis;24,3;3,8
+2013;03157;      Peine, Landkreis;31,5;4,2
+2013;03158;      Wolfenbüttel, Landkreis;30,6;4,0
+2013;032;    Hannover, Stat. Region;34,8;5,0
+2013;03241;      Region Hannover, Landkreis;38,9;4,9
+2013;03241001;      Hannover, Landeshauptstadt;44,6;5,6
+2013;03251;      Diepholz, Landkreis;28,0;3,5
+2013;03252;      Hameln-Pyrmont, Landkreis;28,7;7,1
+2013;03254;      Hildesheim, Landkreis;34,4;5,7
+2013;03255;      Holzminden, Landkreis;18,9;7,2
+2013;03256;      Nienburg (Weser), Landkreis;25,8;5,0
+2013;03257;      Schaumburg, Landkreis;38,1;3,7
+2013;033;    Lüneburg, Stat. Region;27,6;5,1
+2013;03351;      Celle, Landkreis;23,0;5,7
+2013;03352;      Cuxhaven, Landkreis;21,6;7,2
+2013;03353;      Harburg, Landkreis;32,8;2,9
+2013;03354;      Lüchow-Dannenberg, Landkreis;25,2;5,3
+2013;03355;      Lüneburg, Landkreis;35,1;4,0
+2013;03356;      Osterholz, Landkreis;30,3;6,0
+2013;03357;      Rotenburg (Wümme), Landkreis;25,9;4,7
+2013;03358;      Heidekreis, Landkreis;25,2;7,6
+2013;03359;      Stade, Landkreis;26,6;5,1
+2013;03360;      Uelzen, Landkreis;25,8;3,3
+2013;03361;      Verden, Landkreis;29,4;4,8
+2013;034;    Weser-Ems, Stat. Region;25,1;5,3
+2013;03401;      Delmenhorst, Kreisfreie Stadt;26,3;6,8
+2013;03402;      Emden, Kreisfreie Stadt;28,7;9,3
+2013;03403;      Oldenburg (Oldenburg), Kreisfreie Stadt;43,3;6,0
+2013;03404;      Osnabrück, Kreisfreie Stadt;42,2;4,6
+2013;03405;      Wilhelmshaven, Kreisfreie Stadt;33,9;5,7
+2013;03451;      Ammerland, Landkreis;24,5;2,7
+2013;03452;      Aurich, Landkreis;20,9;8,2
+2013;03453;      Cloppenburg, Landkreis;16,6;4,8
+2013;03454;      Emsland, Landkreis;24,0;4,7
+2013;03455;      Friesland, Landkreis;20,0;3,6
+2013;03456;      Grafschaft Bentheim, Landkreis;20,9;6,9
+2013;03457;      Leer, Landkreis;18,6;7,5
+2013;03458;      Oldenburg, Landkreis;12,3;4,3
+2013;03459;      Osnabrück, Landkreis;20,8;4,1
+2013;03460;      Vechta, Landkreis;28,4;4,5
+2013;03461;      Wesermarsch, Landkreis;25,7;4,1
+2013;03462;      Wittmund, Landkreis;27,1;4,7
+2013;04;  Bremen;37,8;6,1
+2013;04011;      Bremen, Kreisfreie Stadt;37,5;6,1
+2013;04012;      Bremerhaven, Kreisfreie Stadt;38,8;6,2
+2013;05;  Nordrhein-Westfalen;46,2;4,4
+2013;051;    Düsseldorf, Regierungsbezirk;47,1;4,9
+2013;05111;      Düsseldorf, Kreisfreie Stadt;51,4;5,0
+2013;05112;      Duisburg, Kreisfreie Stadt;44,5;5,7
+2013;05113;      Essen, Kreisfreie Stadt;51,1;5,8
+2013;05114;      Krefeld, Kreisfreie Stadt;44,1;5,6
+2013;05116;      Mönchengladbach, Kreisfreie Stadt;45,5;7,1
+2013;05117;      Mülheim an der Ruhr, Kreisfreie Stadt;54,8;3,4
+2013;05119;      Oberhausen, Kreisfreie Stadt;44,6;4,7
+2013;05120;      Remscheid, Kreisfreie Stadt;44,2;2,8
+2013;05122;      Solingen, Kreisfreie Stadt;48,5;4,4
+2013;05124;      Wuppertal, Kreisfreie Stadt;46,7;4,9
+2013;05154;      Kleve, Kreis;39,7;5,5
+2013;05158;      Mettmann, Kreis;43,4;4,4
+2013;05162;      Rhein-Kreis Neuss;50,5;3,4
+2013;05166;      Viersen, Kreis;49,1;4,3
+2013;05170;      Wesel, Kreis;45,7;4,3
+2013;053;    Köln, Regierungsbezirk;48,9;3,8
+2013;05314;      Bonn, Kreisfreie Stadt;56,8;2,8
+2013;05315;      Köln, Kreisfreie Stadt;47,8;4,3
+2013;05316;      Leverkusen, Kreisfreie Stadt;50,7;5,7
+2013;05334;      Städteregion Aachen (einschl. Stadt Aachen);51,7;3,7
+2013;05334002;      Aachen, krfr. Stadt;58,0;3,9
+2013;05354;      Aachen, Kreis;.;.
+2013;05358;      Düren, Kreis;44,7;3,8
+2013;05362;      Rhein-Erft-Kreis;47,4;3,4
+2013;05366;      Euskirchen, Kreis;46,0;3,2
+2013;05370;      Heinsberg, Kreis;45,3;4,3
+2013;05374;      Oberbergischer Kreis;44,0;3,7
+2013;05378;      Rheinisch-Bergischer Kreis;51,5;2,7
+2013;05382;      Rhein-Sieg-Kreis;50,0;4,5
+2013;055;    Münster, Regierungsbezirk;43,5;4,3
+2013;05512;      Bottrop, Kreisfreie Stadt;47,9;4,5
+2013;05513;      Gelsenkirchen, Kreisfreie Stadt;36,9;8,5
+2013;05515;      Münster, Kreisfreie Stadt;59,1;3,7
+2013;05554;      Borken, Kreis;38,7;4,0
+2013;05558;      Coesfeld, Kreis;44,3;2,7
+2013;05562;      Recklinghausen, Kreis;42,6;5,1
+2013;05566;      Steinfurt, Kreis;41,7;3,5
+2013;05570;      Warendorf, Kreis;43,3;2,9
+2013;057;    Detmold, Regierungsbezirk;44,9;3,7
+2013;05711;      Bielefeld, Kreisfreie Stadt;47,5;4,3
+2013;05754;      Gütersloh, Kreis;44,0;3,4
+2013;05758;      Herford, Kreis;48,6;3,9
+2013;05762;      Höxter, Kreis;48,2;3,9
+2013;05766;      Lippe, Kreis;41,3;3,9
+2013;05770;      Minden-Lübbecke, Kreis;46,4;3,8
+2013;05774;      Paderborn, Kreis;40,3;2,9
+2013;059;    Arnsberg, Regierungsbezirk;44,6;4,8
+2013;05911;      Bochum, Kreisfreie Stadt;46,2;4,0
+2013;05913;      Dortmund, Kreisfreie Stadt;43,8;6,3
+2013;05914;      Hagen, Kreisfreie Stadt;45,3;3,7
+2013;05915;      Hamm, Kreisfreie Stadt;35,8;5,5
+2013;05916;      Herne, Kreisfreie Stadt;43,3;5,9
+2013;05954;      Ennepe-Ruhr-Kreis;47,8;4,3
+2013;05958;      Hochsauerlandkreis;42,5;3,8
+2013;05962;      Märkischer Kreis;41,4;6,3
+2013;05966;      Olpe, Kreis;44,6;5,5
+2013;05970;      Siegen-Wittgenstein, Kreis;46,1;3,2
+2013;05974;      Soest, Kreis;47,5;3,6
+2013;05978;      Unna, Kreis;47,5;5,2
+2013;06;  Hessen;38,7;4,1
+2013;064;    Darmstadt, Regierungsbezirk;40,8;4,1
+2013;06411;      Darmstadt, Kreisfreie Stadt;57,7;2,3
+2013;06412;      Frankfurt am Main, Kreisfreie Stadt;40,6;4,9
+2013;06413;      Offenbach am Main, Kreisfreie Stadt;37,3;6,2
+2013;06414;      Wiesbaden, Landeshauptstadt, Kreisfreie Stadt;39,7;5,8
+2013;06431;      Bergstraße, Landkreis;45,2;2,6
+2013;06432;      Darmstadt-Dieburg, Landkreis;33,2;4,9
+2013;06433;      Groß-Gerau, Landkreis;30,1;4,6
+2013;06434;      Hochtaunuskreis;46,4;3,1
+2013;06435;      Main-Kinzig-Kreis;33,7;4,1
+2013;06436;      Main-Taunus-Kreis;44,5;2,9
+2013;06437;      Odenwaldkreis;35,5;3,1
+2013;06438;      Offenbach, Landkreis;41,5;3,5
+2013;06439;      Rheingau-Taunus-Kreis;41,2;4,9
+2013;06440;      Wetteraukreis;46,3;4,3
+2013;065;    Gießen, Regierungsbezirk;36,8;3,8
+2013;06531;      Gießen, Landkreis;43,0;3,7
+2013;06532;      Lahn-Dill-Kreis;28,2;4,0
+2013;06533;      Limburg-Weilburg, Landkreis;38,7;3,6
+2013;06534;      Marburg-Biedenkopf, Landkreis;39,6;4,1
+2013;06535;      Vogelsbergkreis;29,3;3,9
+2013;066;    Kassel, Regierungsbezirk;34,4;4,5
+2013;06611;      Kassel, Kreisfreie Stadt;44,1;6,6
+2013;06631;      Fulda, Landkreis;33,0;3,3
+2013;06632;      Hersfeld-Rotenburg, Landkreis;23,3;3,5
+2013;06633;      Kassel, Landkreis;32,5;3,3
+2013;06634;      Schwalm-Eder-Kreis;39,9;5,2
+2013;06635;      Waldeck-Frankenberg, Landkreis;31,2;4,9
+2013;06636;      Werra-Meißner-Kreis;28,2;4,8
+2013;07;  Rheinland-Pfalz;32,5;5,3
+2013;071;    Koblenz, Stat. Region;28,7;5,8
+2013;07111;      Koblenz, Kreisfreie Stadt;44,8;5,7
+2013;07131;      Ahrweiler, Landkreis;39,8;3,7
+2013;07132;      Altenkirchen (Westerwald), Landkreis;28,4;3,9
+2013;07133;      Bad Kreuznach, Landkreis;35,9;4,7
+2013;07134;      Birkenfeld, Landkreis;26,8;3,7
+2013;07135;      Cochem-Zell, Landkreis;17,2;8,1
+2013;07137;      Mayen-Koblenz, Landkreis;23,1;6,0
+2013;07138;      Neuwied, Landkreis;21,3;8,7
+2013;07140;      Rhein-Hunsrück-Kreis;25,7;4,4
+2013;07141;      Rhein-Lahn-Kreis;31,6;7,7
+2013;07143;      Westerwaldkreis;21,0;6,1
+2013;072;    Trier, Stat. Region;32,1;5,3
+2013;07211;      Trier, Kreisfreie Stadt;41,7;4,6
+2013;07231;      Bernkastel-Wittlich, Landkreis;25,2;5,7
+2013;07232;      Eifelkreis Bitburg-Prüm;34,8;3,9
+2013;07233;      Vulkaneifel, Landkreis;31,1;5,0
+2013;07235;      Trier-Saarburg, Landkreis;25,9;7,4
+2013;073;    Rheinhessen-Pfalz, Stat. Region;35,5;4,9
+2013;07311;      Frankenthal (Pfalz), Kreisfreie Stadt;37,6;8,8
+2013;07312;      Kaiserslautern, Kreisfreie Stadt;46,0;5,0
+2013;07313;      Landau in der Pfalz, Kreisfreie Stadt;43,9;5,6
+2013;07314;      Ludwigshafen am Rhein, Kreisfreie Stadt;35,9;9,0
+2013;07315;      Mainz, Kreisfreie Stadt;49,5;1,8
+2013;07316;      Neustadt an der Weinstraße, Kreisfreie Stadt;53,0;7,0
+2013;07317;      Pirmasens, Kreisfreie Stadt;40,4;6,7
+2013;07318;      Speyer, Kreisfreie Stadt;51,3;2,5
+2013;07319;      Worms, Kreisfreie Stadt;36,2;4,1
+2013;07320;      Zweibrücken, Kreisfreie Stadt;43,1;5,1
+2013;07331;      Alzey-Worms, Landkreis;31,0;4,4
+2013;07332;      Bad Dürkheim, Landkreis;30,6;7,4
+2013;07333;      Donnersbergkreis;26,4;5,9
+2013;07334;      Germersheim, Landkreis;27,3;4,0
+2013;07335;      Kaiserslautern, Landkreis;26,7;6,3
+2013;07336;      Kusel, Landkreis;19,4;3,7
+2013;07337;      Südliche Weinstraße, Landkreis;34,1;4,9
+2013;07338;      Rhein-Pfalz-Kreis;13,9;3,9
+2013;07339;      Mainz-Bingen, Landkreis;38,7;4,2
+2013;07340;      Südwestpfalz, Landkreis;15,2;2,3
+2013;08;  Baden-Württemberg;28,0;4,6
+2013;081;    Stuttgart, Regierungsbezirk;28,3;4,3
+2013;08111;      Stuttgart, Landeshauptstadt, Kreisfreie Stadt;40,2;4,5
+2013;08115;      Böblingen, Landkreis;29,8;3,9
+2013;08116;      Esslingen, Landkreis;30,7;3,9
+2013;08117;      Göppingen, Landkreis;24,9;4,6
+2013;08118;      Ludwigsburg, Landkreis;29,2;4,7
+2013;08119;      Rems-Murr-Kreis;25,7;5,2
+2013;08121;      Heilbronn, Kreisfreie Stadt;27,8;3,6
+2013;08125;      Heilbronn, Landkreis;22,1;4,1
+2013;08126;      Hohenlohekreis;21,3;4,3
+2013;08127;      Schwäbisch Hall, Landkreis;22,9;4,5
+2013;08128;      Main-Tauber-Kreis;21,9;4,0
+2013;08135;      Heidenheim, Landkreis;25,4;4,2
+2013;08136;      Ostalbkreis;26,6;3,9
+2013;082;    Karlsruhe, Regierungsbezirk;30,1;4,7
+2013;08211;      Baden-Baden, Kreisfreie Stadt;45,6;4,9
+2013;08212;      Karlsruhe, Kreisfreie Stadt;41,4;5,9
+2013;08215;      Karlsruhe, Landkreis;27,0;3,7
+2013;08216;      Rastatt, Landkreis;23,1;5,8
+2013;08221;      Heidelberg, Kreisfreie Stadt;55,2;1,6
+2013;08222;      Mannheim, Universitätsstadt, Kreisfreie Stadt;33,3;5,8
+2013;08225;      Neckar-Odenwald-Kreis;25,4;4,8
+2013;08226;      Rhein-Neckar-Kreis;29,7;4,6
+2013;08231;      Pforzheim, Kreisfreie Stadt;31,1;5,0
+2013;08235;      Calw, Landkreis;23,3;4,1
+2013;08236;      Enzkreis;20,3;4,3
+2013;08237;      Freudenstadt, Landkreis;19,4;5,9
+2013;083;    Freiburg, Regierungsbezirk;26,6;4,4
+2013;08311;      Freiburg im Breisgau, Kreisfreie Stadt;44,3;5,2
+2013;08315;      Breisgau-Hochschwarzwald, Landkreis;29,1;3,7
+2013;08316;      Emmendingen, Landkreis;17,9;5,8
+2013;08317;      Ortenaukreis;26,9;4,1
+2013;08325;      Rottweil, Landkreis;25,5;3,9
+2013;08326;      Schwarzwald-Baar-Kreis;22,1;6,2
+2013;08327;      Tuttlingen, Landkreis;20,5;4,6
+2013;08335;      Konstanz, Landkreis;26,8;3,7
+2013;08336;      Lörrach, Landkreis;25,1;3,1
+2013;08337;      Waldshut, Landkreis;22,2;4,6
+2013;084;    Tübingen, Regierungsbezirk;26,2;5,1
+2013;08415;      Reutlingen, Landkreis;27,1;4,9
+2013;08416;      Tübingen, Landkreis;38,0;5,4
+2013;08417;      Zollernalbkreis;19,4;4,5
+2013;08421;      Ulm, Universitätsstadt, Kreisfreie Stadt;41,8;4,7
+2013;08425;      Alb-Donau-Kreis;18,4;4,6
+2013;08426;      Biberach, Landkreis;21,1;4,4
+2013;08435;      Bodenseekreis;25,7;6,0
+2013;08436;      Ravensburg, Landkreis;22,2;5,3
+2013;08437;      Sigmaringen, Landkreis;27,9;5,7
+2013;09;  Bayern;27,7;4,4
+2013;091;    Oberbayern, Regierungsbezirk;30,0;4,4
+2013;09161;      Ingolstadt;32,8;4,4
+2013;09162;      München, Landeshauptstadt;32,8;6,0
+2013;09163;      Rosenheim;32,7;6,2
+2013;09171;      Altötting, Landkreis;23,2;3,2
+2013;09172;      Berchtesgadener Land, Landkreis;22,1;4,6
+2013;09173;      Bad Tölz-Wolfratshausen, Landkreis;30,0;2,2
+2013;09174;      Dachau, Landkreis;25,4;5,0
+2013;09175;      Ebersberg, Landkreis;35,6;5,7
+2013;09176;      Eichstätt, Landkreis;21,7;1,7
+2013;09177;      Erding, Landkreis;23,6;2,8
+2013;09178;      Freising, Landkreis;24,3;3,7
+2013;09179;      Fürstenfeldbruck, Landkreis;39,3;2,7
+2013;09180;      Garmisch-Partenkirchen, Landkreis;36,8;2,2
+2013;09181;      Landsberg am Lech, Landkreis;26,4;5,4
+2013;09182;      Miesbach, Landkreis;19,9;3,0
+2013;09183;      Mühldorf a.Inn, Landkreis;20,7;5,0
+2013;09184;      München, Landkreis;48,3;3,4
+2013;09185;      Neuburg-Schrobenhausen, Landkreis;20,1;3,6
+2013;09186;      Pfaffenhofen a.d.Ilm, Landkreis;23,6;6,3
+2013;09187;      Rosenheim, Landkreis;21,2;4,3
+2013;09188;      Starnberg, Landkreis;45,3;3,5
+2013;09189;      Traunstein, Landkreis;23,9;3,9
+2013;09190;      Weilheim-Schongau, Landkreis;24,7;3,6
+2013;092;    Niederbayern, Regierungsbezirk;23,1;3,4
+2013;09261;      Landshut;31,5;3,2
+2013;09262;      Passau;30,8;3,7
+2013;09263;      Straubing;36,4;5,0
+2013;09271;      Deggendorf, Landkreis;23,0;3,6
+2013;09272;      Freyung-Grafenau, Landkreis;23,5;3,0
+2013;09273;      Kelheim, Landkreis;25,0;3,8
+2013;09274;      Landshut, Landkreis;12,3;3,2
+2013;09275;      Passau, Landkreis;20,4;3,4
+2013;09276;      Regen, Landkreis;16,5;3,3
+2013;09277;      Rottal-Inn, Landkreis;20,0;3,9
+2013;09278;      Straubing-Bogen, Landkreis;18,6;2,0
+2013;09279;      Dingolfing-Landau, Landkreis;24,4;2,7
+2013;093;    Oberpfalz, Regierungsbezirk;24,0;3,4
+2013;09361;      Amberg;33,5;6,8
+2013;09362;      Regensburg;37,5;4,7
+2013;09363;      Weiden i.d.OPf.;31,7;3,2
+2013;09371;      Amberg-Sulzbach, Landkreis;10,8;2,5
+2013;09372;      Cham, Landkreis;19,2;2,0
+2013;09373;      Neumarkt i.d.OPf., Landkreis;22,6;2,5
+2013;09374;      Neustadt a.d.Waldnaab, Landkreis;17,2;3,8
+2013;09375;      Regensburg, Landkreis;13,7;2,8
+2013;09376;      Schwandorf, Landkreis;24,8;2,5
+2013;09377;      Tirschenreuth, Landkreis;14,5;3,8
+2013;094;    Oberfranken, Regierungsbezirk;29,5;4,5
+2013;09461;      Bamberg;55,4;3,1
+2013;09462;      Bayreuth;42,8;3,9
+2013;09463;      Coburg;36,2;5,3
+2013;09464;      Hof;34,0;6,0
+2013;09471;      Bamberg, Landkreis;-;3,1
+2013;09472;      Bayreuth, Landkreis;11,6;3,5
+2013;09473;      Coburg, Landkreis;19,6;5,7
+2013;09474;      Forchheim, Landkreis;28,7;3,1
+2013;09475;      Hof, Landkreis;22,7;4,3
+2013;09476;      Kronach, Landkreis;27,3;4,2
+2013;09477;      Kulmbach, Landkreis;28,2;8,6
+2013;09478;      Lichtenfels, Landkreis;21,3;5,6
+2013;09479;      Wunsiedel i.Fichtelgebirge, Landkreis;26,5;5,5
+2013;095;    Mittelfranken, Regierungsbezirk;30,9;5,6
+2013;09561;      Ansbach;39,6;2,9
+2013;09562;      Erlangen;49,9;3,8
+2013;09563;      Fürth;28,9;7,9
+2013;09564;      Nürnberg;29,8;7,5
+2013;09565;      Schwabach;37,2;4,7
+2013;09571;      Ansbach, Landkreis;18,6;6,5
+2013;09572;      Erlangen-Höchstadt, Landkreis;37,6;2,4
+2013;09573;      Fürth, Landkreis;39,5;2,1
+2013;09574;      Nürnberger Land, Landkreis;29,3;6,4
+2013;09575;      Neustadt a.d.Aisch-Bad Windsheim, Landkreis;23,8;5,0
+2013;09576;      Roth, Landkreis;25,8;6,3
+2013;09577;      Weißenburg-Gunzenhausen, Landkreis;26,8;2,6
+2013;096;    Unterfranken, Regierungsbezirk;28,1;4,0
+2013;09661;      Aschaffenburg;38,6;3,8
+2013;09662;      Schweinfurt;37,2;5,0
+2013;09663;      Würzburg;39,5;5,5
+2013;09671;      Aschaffenburg, Landkreis;21,2;4,8
+2013;09672;      Bad Kissingen, Landkreis;27,1;1,7
+2013;09673;      Rhön-Grabfeld, Landkreis;25,5;4,1
+2013;09674;      Haßberge, Landkreis;22,5;3,2
+2013;09675;      Kitzingen, Landkreis;34,8;3,9
+2013;09676;      Miltenberg, Landkreis;21,5;3,3
+2013;09677;      Main-Spessart, Landkreis;25,8;2,4
+2013;09678;      Schweinfurt, Landkreis;-;5,8
+2013;09679;      Würzburg, Landkreis;15,3;3,9
+2013;097;    Schwaben, Regierungsbezirk;23,5;4,8
+2013;09761;      Augsburg;32,7;4,6
+2013;09762;      Kaufbeuren;29,2;5,1
+2013;09763;      Kempten (Allgäu);23,2;6,7
+2013;09764;      Memmingen;22,3;6,6
+2013;09771;      Aichach-Friedberg, Landkreis;17,1;3,7
+2013;09772;      Augsburg, Landkreis;19,2;5,7
+2013;09773;      Dillingen a.d.Donau, Landkreis;25,6;4,2
+2013;09774;      Günzburg, Landkreis;27,3;7,2
+2013;09775;      Neu-Ulm, Landkreis;21,4;6,4
+2013;09776;      Lindau (Bodensee), Landkreis;29,0;4,2
+2013;09777;      Ostallgäu, Landkreis;17,6;3,6
+2013;09778;      Unterallgäu, Landkreis;23,7;2,7
+2013;09779;      Donau-Ries, Landkreis;19,3;3,4
+2013;09780;      Oberallgäu, Landkreis;16,6;2,7
+2013;10;  Saarland;31,3;5,1
+2013;10041;      Saarbrücken, Regionalverband;33,6;6,2
+2013;10041100;      Saarbrücken, Landeshauptstadt;43,1;5,9
+2013;10042;      Merzig-Wadern, Landkreis;25,4;5,4
+2013;10043;      Neunkirchen, Landkreis;24,7;5,4
+2013;10044;      Saarlouis, Landkreis;32,6;3,5
+2013;10045;      Saarpfalz-Kreis;32,9;4,5
+2013;10046;      St. Wendel, Landkreis;33,7;4,9
+2013;11;  Berlin;41,7;7,2
+2013;12;  Brandenburg;37,4;8,0
+2013;12051;      Brandenburg an der Havel, Kreisfreie Stadt;37,6;7,4
+2013;12052;      Cottbus, Kreisfreie Stadt;45,2;8,6
+2013;12053;      Frankfurt (Oder), Kreisfreie Stadt;41,5;6,8
+2013;12054;      Potsdam, Kreisfreie Stadt;55,0;4,2
+2013;12060;      Barnim, Landkreis;37,3;7,1
+2013;12061;      Dahme-Spreewald, Landkreis;37,5;7,1
+2013;12062;      Elbe-Elster, Landkreis;32,1;8,6
+2013;12063;      Havelland, Landkreis;42,0;7,3
+2013;12064;      Märkisch-Oderland, Landkreis;30,6;8,7
+2013;12065;      Oberhavel, Landkreis;35,4;6,9
+2013;12066;      Oberspreewald-Lausitz, Landkreis;29,2;8,9
+2013;12067;      Oder-Spree, Landkreis;33,6;10,1
+2013;12068;      Ostprignitz-Ruppin, Landkreis;31,8;8,7
+2013;12069;      Potsdam-Mittelmark, Landkreis;42,2;5,5
+2013;12070;      Prignitz, Landkreis;33,2;12,2
+2013;12071;      Spree-Neiße, Landkreis;32,1;8,4
+2013;12072;      Teltow-Fläming, Landkreis;35,6;9,5
+2013;12073;      Uckermark, Landkreis;28,9;11,8
+2013;13;  Mecklenburg-Vorpommern;32,1;11,1
+2013;13001;      Kreisfreie Stadt Greifswald, Hansestadt;.;.
+2013;13002;      Kreisfreie Stadt Neubrandenburg, Stadt;.;.
+2013;13003;      Kreisfreie Stadt Rostock, Hansestadt;43,4;13,1
+2013;13004;      Kreisfreie Stadt Schwerin, Landeshauptstadt;43,5;14,2
+2013;13005;      Kreisfreie Stadt Stralsund, Hansestadt;.;.
+2013;13006;      Kreisfreie Stadt Wismar, Hansestadt;.;.
+2013;13051;      Landkreis Bad Doberan;.;.
+2013;13052;      Landkreis Demmin;.;.
+2013;13053;      Landkreis Güstrow;.;.
+2013;13054;      Landkreis Ludwigslust;.;.
+2013;13055;      Landkreis Mecklenburg-Strelitz;.;.
+2013;13056;      Landkreis Müritz;.;.
+2013;13057;      Landkreis Nordvorpommern;.;.
+2013;13058;      Landkreis Nordwestmecklenburg;.;.
+2013;13059;      Landkreis Ostvorpommern;.;.
+2013;13060;      Landkreis Parchim;.;.
+2013;13061;      Landkreis Rügen;.;.
+2013;13062;      Landkreis Uecker-Randow;.;.
+2013;13071;      Landkreis Mecklenburgische Seenplatte;33,5;10,8
+2013;13072;      Landkreis Rostock;29,1;9,6
+2013;13073;      Landkreis Vorpommern-Rügen;24,8;9,8
+2013;13074;      Landkreis Nordwestmecklenburg;30,9;10,9
+2013;13075;      Landkreis Vorpommern-Greifswald;28,7;12,2
+2013;13076;      Landkreis Ludwigslust-Parchim;30,2;10,5
+2013;14;  Sachsen;28,6;10,1
+2013;141;    Chemnitz, Regierungsbezirk;.;.
+2013;14161;      Chemnitz, Kreisfreie Stadt;.;.
+2013;14166;      Plauen, Kreisfreie Stadt;.;.
+2013;14167;      Zwickau, Kreisfreie Stadt;.;.
+2013;14171;      Annaberg, Landkreis;.;.
+2013;14173;      Chemnitzer Land, Landkreis;.;.
+2013;14177;      Freiberg, Landkreis;.;.
+2013;14178;      Vogtlandkreis;.;.
+2013;14181;      Mittlerer Erzgebirgskreis;.;.
+2013;14182;      Mittweida, Landkreis;.;.
+2013;14188;      Stollberg, Landkreis;.;.
+2013;14191;      Aue-Schwarzenberg, Landkreis;.;.
+2013;14193;      Zwickauer Land, Landkreis;.;.
+2013;142;    Dresden, Regierungsbezirk;.;.
+2013;14262;      Dresden, Kreisfreie Stadt;.;.
+2013;14263;      Görlitz, Kreisfreie Stadt;.;.
+2013;14264;      Hoyerswerda, Kreisfreie Stadt;.;.
+2013;14272;      Bautzen, Landkreis;.;.
+2013;14280;      Meißen, Landkreis;.;.
+2013;14284;      Niederschlesischer Oberlausitzkreis;.;.
+2013;14285;      Riesa-Großenhain, Landkreis;.;.
+2013;14286;      Löbau-Zittau, Landkreis;.;.
+2013;14287;      Sächsische Schweiz, Landkreis;.;.
+2013;14290;      Weißeritzkreis;.;.
+2013;14292;      Kamenz, Landkreis;.;.
+2013;143;    Leipzig, Regierungsbezirk;.;.
+2013;14365;      Leipzig, Kreisfreie Stadt;.;.
+2013;14374;      Delitzsch, Landkreis;.;.
+2013;14375;      Döbeln, Landkreis;.;.
+2013;14379;      Leipziger Land, Landkreis;.;.
+2013;14383;      Muldentalkreis;.;.
+2013;14389;      Torgau-Oschatz, Landkreis;.;.
+2013;145;    Chemnitz, NUTS 2-Region;27,9;9,7
+2013;14511;      Chemnitz, Stadt;32,4;13,0
+2013;14521;      Erzgebirgskreis;23,0;8,3
+2013;14522;      Mittelsachsen, Landkreis;27,5;10,1
+2013;14523;      Vogtlandkreis;27,6;8,9
+2013;14524;      Zwickau, Landkreis;31,2;9,5
+2013;146;    Dresden, NUTS 2-Region;28,8;9,5
+2013;14612;      Dresden, Stadt;37,0;8,6
+2013;14625;      Bautzen, Landkreis;28,8;9,0
+2013;14626;      Görlitz, Landkreis;23,2;11,7
+2013;14627;      Meißen, Landkreis;25,3;8,4
+2013;14628;      Sächsische Schweiz-Osterzgebirge, Landkreis;24,5;10,2
+2013;147;    Leipzig, NUTS 2-Region;29,6;12,1
+2013;14713;      Leipzig, Stadt;34,6;14,4
+2013;14729;      Leipzig, Landkreis;26,1;8,7
+2013;14730;      Nordsachsen, Landkreis;22,8;10,9
+2013;15;  Sachsen-Anhalt;27,5;10,5
+2013;15001;      Dessau-Roßlau, Kreisfreie Stadt;31,9;11,8
+2013;15002;      Halle (Saale), Kreisfreie Stadt;36,0;10,6
+2013;15003;      Magdeburg, Kreisfreie Stadt;36,2;9,7
+2013;15081;      Altmarkkreis Salzwedel;24,7;11,1
+2013;15082;      Anhalt-Bitterfeld, Landkreis;24,6;12,3
+2013;15083;      Börde, Landkreis;24,7;7,5
+2013;15084;      Burgenlandkreis;35,1;10,3
+2013;15085;      Harz, Landkreis;28,1;8,2
+2013;15086;      Jerichower Land, Landkreis;22,6;12,4
+2013;15087;      Mansfeld-Südharz, Landkreis;22,0;15,9
+2013;15088;      Saalekreis;20,3;10,0
+2013;15089;      Salzlandkreis;23,0;10,5
+2013;15090;      Stendal, Landkreis;23,7;11,6
+2013;15091;      Wittenberg, Landkreis;22,6;9,0
+2013;151;    Dessau, Stat. Region;.;.
+2013;15101;      Dessau, Kreisfreie Stadt;.;.
+2013;15151;      Anhalt-Zerbst, Kreis;.;.
+2013;15153;      Bernburg, Kreis;.;.
+2013;15154;      Bitterfeld, Kreis;.;.
+2013;15159;      Köthen, Kreis;.;.
+2013;15171;      Wittenberg, Kreis;.;.
+2013;152;    Halle, Stat. Region;.;.
+2013;15202;      Halle (Saale), Kreisfreie Stadt;.;.
+2013;15256;      Burgenlandkreis;.;.
+2013;15260;      Mansfelder Land, Kreis;.;.
+2013;15261;      Merseburg-Querfurt, Kreis;.;.
+2013;15265;      Saalkreis;.;.
+2013;15266;      Sangerhausen, Kreis;.;.
+2013;15268;      Weißenfels, Kreis;.;.
+2013;153;    Magdeburg, Stat. Region;.;.
+2013;15303;      Magdeburg, Kreisfreie Stadt;.;.
+2013;15352;      Aschersleben-Staßfurt, Kreis;.;.
+2013;15355;      Bördekreis;.;.
+2013;15357;      Halberstadt, Kreis;.;.
+2013;15358;      Jerichower Land, Kreis;.;.
+2013;15362;      Ohrekreis;.;.
+2013;15363;      Stendal, Kreis;.;.
+2013;15364;      Quedlinburg, Kreis;.;.
+2013;15367;      Schönebeck, Kreis;.;.
+2013;15369;      Wernigerode, Kreis;.;.
+2013;15370;      Altmarkkreis Salzwedel, Kreis;.;.
+2013;16;  Thüringen;30,5;8,0
+2013;16051;      Erfurt, krsfr. Stadt;39,7;9,3
+2013;16052;      Gera, krsfr. Stadt;33,8;9,0
+2013;16053;      Jena, krsfr. Stadt;55,6;5,3
+2013;16054;      Suhl, krsfr. Stadt;20,9;8,9
+2013;16055;      Weimar, krsfr. Stadt;44,5;7,8
+2013;16056;      Eisenach, krsfr. Stadt;38,5;11,5
+2013;16061;      Eichsfeld, Kreis;34,9;6,2
+2013;16062;      Nordhausen, Kreis;23,5;11,7
+2013;16063;      Wartburgkreis;27,4;4,5
+2013;16064;      Unstrut-Hainich-Kreis;33,0;10,1
+2013;16065;      Kyffhäuserkreis;25,9;11,9
+2013;16066;      Schmalkalden-Meiningen, Kreis;22,5;10,2
+2013;16067;      Gotha, Kreis;36,6;6,3
+2013;16068;      Sömmerda, Kreis;20,9;9,1
+2013;16069;      Hildburghausen, Kreis;17,7;5,5
+2013;16070;      Ilm-Kreis;27,3;8,4
+2013;16071;      Weimarer Land, Kreis;21,5;7,3
+2013;16072;      Sonneberg, Kreis;29,2;9,4
+2013;16073;      Saalfeld-Rudolstadt, Kreis;26,9;9,9
+2013;16074;      Saale-Holzland-Kreis;22,9;6,1
+2013;16075;      Saale-Orla-Kreis;27,0;6,5
+2013;16076;      Greiz, Kreis;25,3;5,4
+2013;16077;      Altenburger Land, Kreis;28,0;5,6
+__________
+(C)opyright Dieses Angebot der Statistischen Ämter des Bundes und der
+Länder ist lizensiert unter der Datenlizenz Deutschland -
+Namensnennung - Version 2.0. Düsseldorf, 2015.
+Stand: 08.11.2015 / 22:16:02
