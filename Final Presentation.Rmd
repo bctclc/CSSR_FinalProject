@@ -70,12 +70,14 @@ stargazer(pois, qpois, nbin,
           dep.var.labels = "Number of refugee initiatives per district"
           )
 ```
-# Plot turnout
+# Turnout rate
 ```{r, echo=FALSE}
 plot_turnout
 ```
 
+# East-West 
 
+# 
 #Descriptive (Chris)
 ##Maps
 
