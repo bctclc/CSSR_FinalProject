@@ -88,7 +88,7 @@ title("Number of Initiatives per District")
 
 # Add initiatives
 points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("red",0.4),pch = 19)
- 
+
 # Label (not really useful here)
 # text(coordinates(Shapes_krs), labels =Shapes_krs$GEN, col = "white")
 
@@ -154,3 +154,104 @@ summary(qpois)
 # model is a negative binomal model
 nbin <- glm.nb(numb.ini ~., data = temp1)
 summary(nbin) 
+
+#### Predicted probabilities
+# First create a dataset with the variables as you want them
+
+# Here, everything but East/West is at its mean
+predicted <- data.frame(oldage.dependency = mean(temp1$oldage.dependency),
+                        gender.ratio = mean(temp1$gender.ratio),
+                        abitur.per = mean(temp1$abitur.per),
+                        GDP.cap = mean(temp1$GDP.cap),
+                        unemployment = mean(temp1$unemployment),
+                        pop.dens = mean(temp1$pop.dens),
+                        refugee.ratio = mean(temp1$refugee.ratio),
+                        east = unique(temp1$east),
+                        turnout = mean(temp1$turnout))
+
+predicted <- cbind(predicted, predict(nbin, predicted, type = "link", se.fit = TRUE))
+predicted <- within(predicted, {
+  NumberInitiatives <- exp(fit)
+  LL <- exp(fit - 1.96 * se.fit)
+  UL <- exp(fit + 1.96 * se.fit)
+})
+
+ggplot(predicted, aes(east, NumberInitiatives)) + 
+  geom_line() +
+  geom_ribbon(aes(ymin = LL, ymax = UL), fill = "blue", alpha = .25)
+
+ggplot(predicted, aes(east, NumberInitiatives)) + 
+  geom_point(color="firebrick") +
+  geom_point(aes(east, LL)) +
+  geom_point(aes(east, UL))
+
+# The same thing for old age dependency, splitted for east west
+remove(predicted)
+
+predicted <- data.frame(oldage.dependency = rep(seq(from = min(temp1$oldage.dependency), to = max(temp1$oldage.dependency), length.out = 100), 2),
+                        gender.ratio = mean(temp1$gender.ratio),
+                        abitur.per = mean(temp1$abitur.per),
+                        GDP.cap = mean(temp1$GDP.cap),
+                        unemployment = mean(temp1$unemployment),
+                        pop.dens = mean(temp1$pop.dens),
+                        refugee.ratio = mean(temp1$refugee.ratio),
+                        east = rep(0:1, each = 100, len = 200),
+                        turnout = mean(temp1$turnout))
+
+predicted <- cbind(predicted, predict(nbin, predicted, type = "link", se.fit = TRUE))
+predicted <- within(predicted, {
+  NumberInitiatives <- exp(fit)
+  LL <- exp(fit - 1.96 * se.fit)
+  UL <- exp(fit + 1.96 * se.fit)
+})
+
+predicted$east <- factor(predicted$east)
+levels(predicted$east)
+
+ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
+  geom_line(aes(colour = east), size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
+  labs(x = "Old Age Dependency", y = "Predicted Number of Initiatives")
+
+predicted <- predicted[1:100,]
+ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
+  geom_line(size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .25) +
+  labs(x = "Old Age Dependency", y = "Predicted Number of Initiatives")
+
+
+### Same thing for Turnout
+remove(predicted)
+
+predicted <- data.frame(oldage.dependency = mean(temp1$oldage.dependency),
+                        gender.ratio = mean(temp1$gender.ratio),
+                        abitur.per = mean(temp1$abitur.per),
+                        GDP.cap = mean(temp1$GDP.cap),
+                        unemployment = mean(temp1$unemployment),
+                        pop.dens = mean(temp1$pop.dens),
+                        refugee.ratio = mean(temp1$refugee.ratio),
+                        east = rep(0:1, each = 100, len = 200),
+                        turnout = rep(seq(from = min(temp1$turnout), to = max(temp1$turnout), length.out = 100), 2))
+
+predicted <- cbind(predicted, predict(nbin, predicted, type = "link", se.fit = TRUE))
+predicted <- within(predicted, {
+  NumberInitiatives <- exp(fit)
+  LL <- exp(fit - 1.96 * se.fit)
+  UL <- exp(fit + 1.96 * se.fit)
+})
+
+predicted$east <- factor(predicted$east)
+levels(predicted$east)
+
+ggplot(predicted, aes(turnout, NumberInitiatives)) +
+  geom_line(aes(colour = east), size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+
+predicted <- predicted[1:100,]
+plot_turnout <- ggplot(predicted, aes(turnout, NumberInitiatives)) +
+  geom_line(size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+
+plot_turnout
