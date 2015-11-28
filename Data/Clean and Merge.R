@@ -241,6 +241,30 @@ sapply(Turnout, class) # have a look at the changed classes
 # 3. Merging all data sets 
 #############################
 
+### Recode Berlin (from 11 to 11000) and Hamburg (from 2 to 2000), to make 
+### ensure coherent coding
+
+GenderAge$district.ID[GenderAge$district.ID == 2] <- 2000
+GenderAge$district.ID[GenderAge$district.ID == 11] <- 11000
+
+Education$district.ID[Education$district.ID == 2] <- 2000
+Education$district.ID[Education$district.ID == 11] <- 11000
+
+Jobs$district.ID[Jobs$district.ID == 2] <- 2000
+Jobs$district.ID[Jobs$district.ID == 11] <- 11000
+
+GDP$district.ID[GDP$district.ID == 2] <- 2000
+GDP$district.ID[GDP$district.ID == 11] <- 11000
+
+Pop$district.ID[Pop$district.ID == 2] <- 2000
+Pop$district.ID[Pop$district.ID == 11] <- 11000
+
+Ref$district.ID[Ref$district.ID == 2] <- 2000
+Ref$district.ID[Ref$district.ID == 11] <- 11000
+
+Turnout$district.ID[Turnout$district.ID == 2] <- 2000
+Turnout$district.ID[Turnout$district.ID == 11] <- 11000
+
 ### Keep only necessary vectors from data sets before merging: district.ID and final variables
 a <- subset(Inis[, 1:2]) # district.ID + number of initiatives per district
 b <- subset(GenderAge[,  c(2:3, 40, 43, 46)]) # district.ID + district.name + total population + gender.ratio + oldage.dependency
