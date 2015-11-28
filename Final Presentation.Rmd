@@ -1,0 +1,51 @@
+---
+title: "German Willkommenskultur"
+author: Christopher Cosler and Lisa Schmid
+date: December 4, 2015
+output:
+  revealjs::revealjs_presentation:
+    theme: simple
+    transition: concave
+    highlight: pygments
+    center: true
+---
+
+```{r}
+source("Analysis/Analysis.R")
+```
+
+# Introduction
+
+## Level two if wanted
+
+- Turn off alarm
+- Get out of bed
+
+## Level three if wanted
+
+- Eat eggs
+- Drink coffee
+
+# Introduce the topic but make it interesting! (Lisa)
+
+# Theory & Hypothesis (Lisa)
+
+# Data sources (Chris)
+
+# Descriptive (Lisa)
+## Map of Initatives
+## Distribution of initatives per district (Hist)
+
+#Inferential (Chris)
+##Regression and why count
+##???
+
+#Descriptive (Chris)
+##Maps
+
+#Conclusion (Lisa)
+
+#Shortcomings?
+
+#Appendix
+#Summary Table (Lisa)
