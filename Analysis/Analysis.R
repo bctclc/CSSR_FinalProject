@@ -176,14 +176,23 @@ predicted <- within(predicted, {
   UL <- exp(fit + 1.96 * se.fit)
 })
 
-ggplot(predicted, aes(east, NumberInitiatives)) + 
-  geom_line() +
-  geom_ribbon(aes(ymin = LL, ymax = UL), fill = "blue", alpha = .25)
+# East West as linechart
+plot_east_line <- ggplot(predicted, aes(east, NumberInitiatives)) + 
+  geom_line(colour = "firebrick", size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL), fill = "firebrick", alpha = .25) +
+  ggtitle("Prediction of number of refugee initatives \n in East and West") +
+  theme(plot.title = element_text(size=20, face="bold", vjust=1, lineheight=1)) +
+  theme(panel.background = element_rect(fill = 'grey75')) +
+  theme(panel.grid.major = element_line(colour = "white", size=1)) +
+  theme(panel.grid.minor = element_line(colour = "white", size=1)) +
+    labs(x= "Region (0 = West, 1 = East)", y = "Predicted number of refugee initiatives")
+plot_east_line
 
 ggplot(predicted, aes(east, NumberInitiatives)) + 
-  geom_point(color="firebrick") +
+  geom_point(colour="firebrick") +
   geom_point(aes(east, LL)) +
-  geom_point(aes(east, UL))
+  geom_point(aes(east, UL)) +
+  theme_economist()
 
 # The same thing for old age dependency, splitted for east west
 remove(predicted)
@@ -243,10 +252,11 @@ predicted <- within(predicted, {
 predicted$east <- factor(predicted$east)
 levels(predicted$east)
 
-ggplot(predicted, aes(turnout, NumberInitiatives)) +
+plot_turnout_eastwest <- ggplot(predicted, aes(turnout, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
   labs(x = "Turnout", y = "Predicted Number of Initiatives")
+plot_turnout_eastwest
 
 predicted <- predicted[1:100,]
 plot_turnout <- ggplot(predicted, aes(turnout, NumberInitiatives)) +
