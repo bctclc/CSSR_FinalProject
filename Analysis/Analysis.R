@@ -21,8 +21,8 @@
 ##############################
 
 ### Set working directory
-try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_Dataanalysis/"), silent = TRUE)
-try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_DataAnalysis"), silent = TRUE)
+try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_FinalProject/"), silent = TRUE)
+try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_FinalProject"), silent = TRUE)
 
 ### Calling preceding R script "Clean and Merge"
 source("Data/Clean and Merge.R")

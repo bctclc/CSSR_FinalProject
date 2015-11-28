@@ -45,37 +45,12 @@ We retrieve our data from three different sources:
 ## Map of Initatives
 ## Distribution of initatives per district (Hist)
 
-#Inferential (Chris)
-
-#Regression and why count
-Test Test
-```{r, echo=FALSE, results='asis'}
-labels <- c("Old Age Dependency Ratio",
-            'Gender Ratio',
-            "Population with Abitur (percentage)",
-            "GDP per Capita in 1000 Euros",
-            'Unemployment Rate',
-            'Population Density',
-            'Number of Refugee Initiatives per District',
-            "East-West Dummy",
-            "Voter Turnout (percentage)")
-stargazer(pois, qpois, nbin, 
-          type='latex', # For PDF change style to latex, otherwise html
-          title = "Poisson, Quasi-Poisson and Negative Binomial Regression Estimates for the number of Refugee Initiatives",
-          digits = 2,
-          header = FALSE,
-          covariate.labels = labels,
-          column.labels = c('Poisson', 'Quasi-Poisson', 'Negative Binomial'),
-          model.names = FALSE,
-          dep.var.labels = "Number of refugee initiatives per district"
-          )
-```
-# Turnout rate
+# Predictions - Turnout rate
 ```{r, echo=FALSE}
 plot_turnout
 ```
 
-# East-West 
+# Predictions East-West 
 
 # 
 #Descriptive (Chris)
