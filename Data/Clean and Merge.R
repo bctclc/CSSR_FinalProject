@@ -32,9 +32,9 @@
 ### 0. Preparations
 ##############################
 
-### Setting working directory, please change if necessary! 
-try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_Dataanalysis/"), silent = TRUE)
-try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_DataAnalysis"), silent = TRUE)
+### Set working directory
+try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_FinalProject/"), silent = TRUE)
+try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_FinalProject"), silent = TRUE)
 
 ### Source preceding R code "Gather.R"
 source("Data/Gather.R")

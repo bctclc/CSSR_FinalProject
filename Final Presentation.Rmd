@@ -14,76 +14,42 @@ output:
 # Load source file
 source("Analysis/Analysis.R")
 # Load libraries for presentation
-library(stargazer)
 ```
 
 # Introduction
 
-## Level two if wanted
-
-- Turn off alarm
-- Get out of bed
-
-## Level three if wanted
-
-- Eat eggs
-- Drink coffee
-
-# Introduce the topic but make it interesting! (Lisa)
-
-# Theory & Hypothesis (Lisa)
-
-# Data sources (Chris)
-We retrieve our data from three different sources:
-
+# Data sources
 1. *ProAsyl map* ^[https://www.google.com/maps/d/viewer?mid=zc6TdvfelKuY.kUvriXoSREXw]
 2. *German Federal Agency for Cartography and Geodesy* ^[http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=19&gdz_user_id=0]
 3. *German Federal Statistical Office* ^[https://www-genesis.destatis.de/genesis/online]
 4. *German Regional Statistical Offices* ^[https://www.regionalstatistik.de/genesis/online]
 
-# Descriptive (Lisa)
-## Map of Initatives
-## Distribution of initatives per district (Hist)
-
-#Inferential (Chris)
-
-#Regression and why count
-Test Test
-```{r, echo=FALSE, results='asis'}
-labels <- c("Old Age Dependency Ratio",
-            'Gender Ratio',
-            "Population with Abitur (percentage)",
-            "GDP per Capita in 1000 Euros",
-            'Unemployment Rate',
-            'Population Density',
-            'Number of Refugee Initiatives per District',
-            "East-West Dummy",
-            "Voter Turnout (percentage)")
-stargazer(pois, qpois, nbin, 
-          type='latex', # For PDF change style to latex, otherwise html
-          title = "Poisson, Quasi-Poisson and Negative Binomial Regression Estimates for the number of Refugee Initiatives",
-          digits = 2,
-          header = FALSE,
-          covariate.labels = labels,
-          column.labels = c('Poisson', 'Quasi-Poisson', 'Negative Binomial'),
-          model.names = FALSE,
-          dep.var.labels = "Number of refugee initiatives per district"
-          )
-```
-# Turnout rate
-```{r, echo=FALSE}
-plot_turnout
+# Dependent variable
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot(histogram)
 ```
 
 # East-West 
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot_eastwest
+```
 
-# 
-#Descriptive (Chris)
-##Maps
+# Age
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot_age_eastwest
+```
 
-#Conclusion (Lisa)
+# GDP per capita
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot_GDP_eastwest
+```
 
-#Shortcomings?
+# Gender 
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot_gender_eastwest
+```
 
-#Appendix
-#Summary Table (Lisa)
+# Turnout
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+plot_turnout_eastwest
+```

@@ -21,8 +21,8 @@
 ##############################
 
 ### Set working directory
-try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_Dataanalysis/"), silent = TRUE)
-try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_DataAnalysis"), silent = TRUE)
+try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_FinalProject/"), silent = TRUE)
+try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_FinalProject"), silent = TRUE)
 
 ### Calling preceding R script "Clean and Merge"
 source("Data/Clean and Merge.R")
@@ -33,6 +33,12 @@ source("Data/Clean and Merge.R")
 
 ### 1.1 Districts and Initiatives
 ##############################
+
+###
+histogram <- ggplot(Data.fin, aes(x=numb.ini)) + 
+  geom_histogram(binwidth = 1) +
+  theme_light()
+histogram
 
 ### Plot shapefile and dots
 plot(Shapes_krs) # creates map of Germany with district borders
@@ -188,11 +194,15 @@ plot_east_line <- ggplot(predicted, aes(east, NumberInitiatives)) +
     labs(x= "Region (0 = West, 1 = East)", y = "Predicted number of refugee initiatives")
 plot_east_line
 
-ggplot(predicted, aes(east, NumberInitiatives)) + 
-  geom_point(colour="firebrick") +
-  geom_point(aes(east, LL)) +
-  geom_point(aes(east, UL)) +
-  theme_economist()
+
+predicted$east <- factor(predicted$east)
+levels(predicted$east)
+plot_eastwest <- ggplot(predicted, aes(east, NumberInitiatives)) + 
+  geom_point(colour = "black", size = 4) +
+  geom_point(aes(east, LL), size = 4, colour = "grey") +
+  geom_point(aes(east, UL), size = 4, colour = "grey") +
+  theme_fivethirtyeight()
+
 
 # The same thing for old age dependency, splitted for east west
 remove(predicted)
@@ -217,10 +227,12 @@ predicted <- within(predicted, {
 predicted$east <- factor(predicted$east)
 levels(predicted$east)
 
-ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
+plot_age_eastwest <- ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
-  labs(x = "Old Age Dependency", y = "Predicted Number of Initiatives")
+  labs(x = "Old Age Dependency", y = "Predicted Number of Initiatives") +
+  theme_fivethirtyeight()
+plot_age_eastwest
 
 predicted <- predicted[1:100,]
 ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
@@ -265,3 +277,77 @@ plot_turnout <- ggplot(predicted, aes(turnout, NumberInitiatives)) +
   labs(x = "Turnout", y = "Predicted Number of Initiatives")
 
 plot_turnout
+
+### Same thing for GDP
+remove(predicted)
+
+predicted <- data.frame(oldage.dependency = mean(temp1$oldage.dependency),
+                        gender.ratio = mean(temp1$gender.ratio),
+                        abitur.per = mean(temp1$abitur.per),
+                        GDP.cap = rep(seq(from = min(temp1$GDP.cap), to = max(temp1$GDP.cap), length.out = 100), 2),
+                        unemployment = mean(temp1$unemployment),
+                        pop.dens = mean(temp1$pop.dens),
+                        refugee.ratio = mean(temp1$refugee.ratio),
+                        east = rep(0:1, each = 100, len = 200),
+                        turnout = mean(temp1$turnout))
+
+predicted <- cbind(predicted, predict(nbin, predicted, type = "link", se.fit = TRUE))
+predicted <- within(predicted, {
+  NumberInitiatives <- exp(fit)
+  LL <- exp(fit - 1.96 * se.fit)
+  UL <- exp(fit + 1.96 * se.fit)
+})
+
+predicted$east <- factor(predicted$east)
+levels(predicted$east)
+
+plot_GDP_eastwest <- ggplot(predicted, aes(GDP.cap, NumberInitiatives)) +
+  geom_line(aes(colour = east), size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+plot_GDP_eastwest
+
+predicted <- predicted[1:100,]
+plot_GDP <- ggplot(predicted, aes(GDP.cap, NumberInitiatives)) +
+  geom_line(size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+
+plot_GDP
+
+### Same thing for Gender
+remove(predicted)
+
+predicted <- data.frame(oldage.dependency = mean(temp1$oldage.dependency),
+                        gender.ratio = rep(seq(from = min(temp1$gender.ratio), to = max(temp1$gender.ratio), length.out = 100), 2),
+                        abitur.per = mean(temp1$abitur.per),
+                        GDP.cap = mean(temp1$GDP.cap),
+                        unemployment = mean(temp1$unemployment),
+                        pop.dens = mean(temp1$pop.dens),
+                        refugee.ratio = mean(temp1$refugee.ratio),
+                        east = rep(0:1, each = 100, len = 200),
+                        turnout = mean(temp1$turnout))
+
+predicted <- cbind(predicted, predict(nbin, predicted, type = "link", se.fit = TRUE))
+predicted <- within(predicted, {
+  NumberInitiatives <- exp(fit)
+  LL <- exp(fit - 1.96 * se.fit)
+  UL <- exp(fit + 1.96 * se.fit)
+})
+
+predicted$east <- factor(predicted$east)
+levels(predicted$east)
+
+plot_gender_eastwest <- ggplot(predicted, aes(gender.ratio, NumberInitiatives)) +
+  geom_line(aes(colour = east), size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+plot_gender_eastwest
+
+predicted <- predicted[1:100,]
+plot_gender <- ggplot(predicted, aes(gender.ratio, NumberInitiatives)) +
+  geom_line(size = 2) +
+  geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .25) +
+  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+
+plot_gender
