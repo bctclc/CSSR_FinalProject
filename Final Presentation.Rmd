@@ -53,3 +53,90 @@ plot_gender_eastwest
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
 plot_turnout_eastwest
 ```
+
+# East West Germany Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$east, c(0, 1), right = FALSE)
+levels(classes) <- c("West", "East")
+# Assign colors
+colours <- c("black", "white") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("0<0.25", "0.25<0.3", "0.3<0.4", "0.4<0.45", "0.45<0.5")
+legend("right", fill = colours, legend = levels)
+```
+
+# East West Germany Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$east, c(0, 1), right = FALSE)
+levels(classes) <- c("West", "East")
+# Assign colors
+colours <- c("black", "white") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("West", "East")
+legend("right", fill = colours, legend = levels)
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("red",0.4),pch = 19)
+```
+
+# Age Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$oldage.dependency, c(0.25, 0.3, 0.35, 0.4, 0.45, 0.5), right = FALSE)
+levels(classes) <- c("<0.25", "<0.3", "<0.4", "<0.45", "<0.5")
+# Assign colors
+colours <- brewer.pal(6,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("<0.25", "<0.3", "<0.4", "<0.45", "<0.5")
+legend("right", fill = colours, legend = levels)
+```
+
+# Age Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$oldage.dependency, c(0.25, 0.3, 0.35, 0.4, 0.45, 0.5), right = FALSE)
+levels(classes) <- c("0<0.25", "0.25<0.3", "0.3<0.4", "0.4<0.45", "0.45<0.5")
+# Assign colors
+colours <- brewer.pal(6,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("red",0.4),pch = 19)
+# Add legend
+levels <- c("<0.25", "<0.3", "<0.4", "<0.45", "<0.5")
+legend("right", fill = colours, legend = levels)
+```
+
+# Turnout Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$turnout, c(60, 63, 65, 68, 70, 73, 76), right = FALSE)
+levels(classes) <- c("60", "63", "65", "68", "70", "73", "76")
+# Assign colors
+colours <- brewer.pal(8,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("60", "63", "65", "68", "70", "73", "76")
+legend("right", fill = colours, legend = levels)
+```
+
+# Turnout Map
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Cut data into classes
+classes <- cut(Data.fin$turnout, c(60, 63, 65, 68, 70, 73, 76), right = FALSE)
+levels(classes) <- c("60", "63", "65", "68", "70", "73", "76")
+# Assign colors
+colours <- brewer.pal(8,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("60", "63", "65", "68", "70", "73", "76")
+legend("right", fill = colours, legend = levels)
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("red",0.4),pch = 19)
+```
