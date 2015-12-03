@@ -1,55 +1,204 @@
 ---
-title: "German Willkommenskultur"
+title: "What are the determinants of refugee initiatives?"
 author: "Christopher Cosler and Lisa Schmid"
 date: "December 4, 2015"
 output:
   revealjs::revealjs_presentation:
-    theme: sky
+    theme: white
     transition: fade
     highlight: pygments
-    center: true
+    fig_caption: true
 ---
 
 ```{r, include = FALSE}
-# Load source file
+### Set working directory
+try(setwd("C:/Users/Christopher/Google Drive/GitHub/CSSR_FinalProject/"), silent = TRUE)
+try(setwd("C:/Users/Lisa/Documents/GitHub/CSSR_FinalProject"), silent = TRUE)
+# Load source file 
 source("Analysis/Analysis.R")
-# Load libraries for presentation
 ```
 
+
 # Introduction
+![Refugees Welcome](Pictures Presentation/RefugeesWelcome.jpg)
 
-# Data sources
-1. *ProAsyl map* ^[https://www.google.com/maps/d/viewer?mid=zc6TdvfelKuY.kUvriXoSREXw]
-2. *German Federal Agency for Cartography and Geodesy* ^[http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=19&gdz_user_id=0]
-3. *German Federal Statistical Office* ^[https://www-genesis.destatis.de/genesis/online]
-4. *German Regional Statistical Offices* ^[https://www.regionalstatistik.de/genesis/online]
+# Refugee Initiatives
+... in Germany
+```{r, echo = FALSE, fig.align = 'center', fig.cap = "Refugee Initiatives in Berlin", fig.width = 5, fig.height = 5}
+plot(Shapes_krs) # creates map of Germany with district borders
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",5),pch = 16, cex = 0.5) # plots initiatives on the map
+```
 
-# Dependent variable
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Refugee Initiatives
+... in Berlin
+```{r, echo = FALSE, fig.align = 'center', fig.cap = "Refugee Initiatives in Berlin", fig.width = 5, fig.height = 5}
+Berlin_shapes <- Shapes_krs[Shapes_krs$GEN == "Berlin",]
+plot(Berlin_shapes)
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",5),pch = 16)
+```
+
+# Refugee Initiatives
+... the example of "Moabit hilft" in Berlin Moabit
+![Moabit hilft](Pictures Presentation/Moabit.jpg)
+
+# Theory and Hypotheses
+We test for common determinants of political participation used in the social capital theory:
+
+- Age (+)
+- Gender (males +)
+- Education (+)
+- GDP per capita (+)
+- Unemployment rate (-)
+
+# Theory and Hypotheses
+Furthermore, we control for
+
+- Population density ("city effect")
+- Number of refugees per district ("need hypothesis")
+- East/West Germany
+- Voter turnour (catch all variable for political participation)
+
+# Data Sources
+- ProAsyl map ^[https://www.google.com/maps/d/viewer?mid=zc6TdvfelKuY.kUvriXoSREXw]
+- German Federal Agency for Cartography and Geodesy ^[http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=19&gdz_user_id=0]
+- German Federal Statistical Office ^[https://www-genesis.destatis.de/genesis/online]
+- German Regional Statistical Offices ^[https://www.regionalstatistik.de/genesis/online]
+
+# Descriptive Statistics
+Dependent Variable
+```{r, echo=FALSE, fig.align='center', fig.cap="Refugee Initiatives per District", fig.width=8, fig.height=6}
 plot(histogram)
 ```
 
-# East-West 
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Descriptive Statistics
+East-West
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$east, c(0, 1), right = FALSE)
+levels(classes) <- c("West", "East")
+# Assign colors
+colours <- c("grey", "white") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c(0:1)
+legend("right", fill = colours, legend = c("West", "East"))
+```
+
+# Descriptive Statistics
+East-West
+```{r, echo=FALSE, fig.align='center', fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$east, c(0, 1), right = FALSE)
+levels(classes) <- c("West", "East")
+# Assign colors
+colours <- c("grey", "white") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("West", "East")
+legend("right", fill = colours, legend = levels)
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",0.4),pch = 16)
+```
+
+# Descriptive Statistics
+Age (Old Age Dependency Ratio = population 65+ by population 15-64)
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$oldage.dependency, c(0.25, 0.3, 0.35, 0.4, 0.45, 0.5), right = FALSE)
+levels(classes) <- c("<0.25", "<0.3", "<0.4", "<0.45", "<0.5")
+# Assign colors
+colours <- brewer.pal(6,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("young (<0.25)", "<0.3", "<0.4", "<0.45", "old (>0.5)")
+legend("right", fill = colours, legend = levels)
+```
+
+# Descriptive Statistics
+Age (Old Age Dependency Ratio = population 65+ by population 15-64)
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$oldage.dependency, c(0.25, 0.3, 0.35, 0.4, 0.45, 0.5), right = FALSE)
+levels(classes) <- c("0<0.25", "0.25<0.3", "0.3<0.4", "0.4<0.45", "0.45<0.5")
+# Assign colors
+colours <- brewer.pal(6,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",0.4),pch = 19)
+# Add legend
+levels <- c("young (<0.25)", "<0.3", "<0.4", "<0.45", "old (>0.5)")
+legend("right", fill = colours, legend = levels)
+```
+
+# Descriptive Statistics
+Voter Turnout
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$turnout, c(60, 63, 66, 69, 72, 75, 78), right = FALSE)
+levels(classes) <- c("60", "63", "66", "69", "72", "75", "78")
+# Assign colors
+colours <- brewer.pal(8,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("< 60%", "< 63%", "< 66%", "< 69%", "< 72%", "< 75%", "> 78%")
+legend("right", fill = colours, legend = levels)
+```
+
+# Descriptive Statistics
+Voter Turnout
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
+# Cut data into classes
+classes <- cut(Data.fin$turnout, c(60, 63, 66, 69, 72, 75, 78), right = FALSE)
+levels(classes) <- c("60", "63", "66", "69", "72", "75", "78")
+# Assign colors
+colours <- brewer.pal(8,"BuGn") # Pick color palette
+# Plot shapefile colored
+plot(Shapes_krs,border = "darkgrey", col = colours[classes])
+# Add legend
+levels <- c("< 60%", "< 63%", "< 66%", "< 69%", "< 72%", "< 75%", "> 78%")
+legend("right", fill = colours, legend = levels)
+points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",0.4),pch = 19)
+```
+
+# Predicted Probabilities
+East-West Divide
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_eastwest
 ```
 
-# Age
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Predicted Probabilities
+Age
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_age_eastwest
 ```
 
-# GDP per capita
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Predicted Probabilities
+GDP per capita
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_GDP_eastwest
 ```
 
-# Gender 
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Predicted Probabilities
+Gender 
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_gender_eastwest
 ```
 
-# Turnout
-```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=5, fig.height=5}
+# Predicted Probabilities
+Voter Turnout
+```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_turnout_eastwest
 ```
+
+# Conclusion
+We find positive evidence for the following hypotheses:
+
+-
+-
+-
+
+# Thank you for your attention!
+![](Pictures Presentation/RefugeesLogo.jpg)

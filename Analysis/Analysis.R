@@ -37,7 +37,10 @@ source("Data/Clean and Merge.R")
 ###
 histogram <- ggplot(Data.fin, aes(x=numb.ini)) + 
   geom_histogram(binwidth = 1) +
-  theme_light()
+  theme_light() +
+  ylab("Count") +
+  xlab("Number of Initiatives per district")
+
 histogram
 
 ### Plot shapefile and dots
@@ -132,7 +135,12 @@ temp1 <- Data.fin
 drops <- c("district.ID","district.name")
 temp1 <- temp1[,!(names(temp1) %in% drops)]
 temp1 <- na.omit(temp1) # Omit row if missing value
-
+############# Drop Berlin, do we really want this?
+#############
+#############
+#############
+#############
+temp1 <- dplyr::filter(temp1, numb.ini != 40)
 # Second subset for comparison reasons if you want to
 temp2 <- Data.fin[c("numb.ini", "unemployment", "pop.dens", "GDP.cap")] # Copy columns in new dataframe
 temp2 <- na.omit(temp2) # Omit row if missing value
@@ -198,10 +206,13 @@ plot_east_line
 predicted$east <- factor(predicted$east)
 levels(predicted$east)
 plot_eastwest <- ggplot(predicted, aes(east, NumberInitiatives)) + 
-  geom_point(colour = "black", size = 4) +
-  geom_point(aes(east, LL), size = 4, colour = "grey") +
-  geom_point(aes(east, UL), size = 4, colour = "grey") +
-  theme_fivethirtyeight()
+  geom_point(colour = "green", size = 4) +
+  geom_point(aes(east, LL), size = 4, colour = "red") +
+  geom_point(aes(east, UL), size = 4, colour = "red") +
+  theme_light() +
+  ylab("Predicted Number of Initiatives") +
+  xlab("0 = West Germany , 1 = East Germany")
+plot_eastwest
 
 
 # The same thing for old age dependency, splitted for east west
@@ -224,14 +235,17 @@ predicted <- within(predicted, {
   UL <- exp(fit + 1.96 * se.fit)
 })
 
-predicted$east <- factor(predicted$east)
+predicted$east <- factor(predicted$east, labels = c("West Germany", "East Germany"))
 levels(predicted$east)
+
+
 
 plot_age_eastwest <- ggplot(predicted, aes(oldage.dependency, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
   labs(x = "Old Age Dependency", y = "Predicted Number of Initiatives") +
-  theme_fivethirtyeight()
+  theme_light() +
+  theme(legend.title=element_blank())
 plot_age_eastwest
 
 predicted <- predicted[1:100,]
@@ -261,13 +275,15 @@ predicted <- within(predicted, {
   UL <- exp(fit + 1.96 * se.fit)
 })
 
-predicted$east <- factor(predicted$east)
+predicted$east <- factor(predicted$east, labels = c("West Germany", "East Germany"))
 levels(predicted$east)
 
 plot_turnout_eastwest <- ggplot(predicted, aes(turnout, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
-  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+  labs(x = "Turnout", y = "Predicted Number of Initiatives") +
+  theme_light() +
+  theme(legend.title=element_blank())
 plot_turnout_eastwest
 
 predicted <- predicted[1:100,]
@@ -298,13 +314,16 @@ predicted <- within(predicted, {
   UL <- exp(fit + 1.96 * se.fit)
 })
 
-predicted$east <- factor(predicted$east)
+predicted$east <- factor(predicted$east, labels = c("West Germany", "East Germany"))
 levels(predicted$east)
 
 plot_GDP_eastwest <- ggplot(predicted, aes(GDP.cap, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
-  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+  labs(x = "GDP per capita (1000)", y = "Predicted Number of Initiatives") +
+  theme(legend.title=element_blank()) +
+  theme_light()
+
 plot_GDP_eastwest
 
 predicted <- predicted[1:100,]
@@ -335,13 +354,15 @@ predicted <- within(predicted, {
   UL <- exp(fit + 1.96 * se.fit)
 })
 
-predicted$east <- factor(predicted$east)
+predicted$east <- factor(predicted$east, labels = c("West Germany", "East Germany"))
 levels(predicted$east)
 
 plot_gender_eastwest <- ggplot(predicted, aes(gender.ratio, NumberInitiatives)) +
   geom_line(aes(colour = east), size = 2) +
   geom_ribbon(aes(ymin = LL, ymax = UL, fill = east), alpha = .25) +
-  labs(x = "Turnout", y = "Predicted Number of Initiatives")
+  labs(x = "Gender Ratio", y = "Predicted Number of Initiatives") +
+  theme_light() +
+  theme(legend.title=element_blank())
 plot_gender_eastwest
 
 predicted <- predicted[1:100,]

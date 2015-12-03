@@ -33,7 +33,8 @@
 packages <- c('Hmisc', 'plyr', 'httr', 'dplyr', 'XML', 'maptools', 'sp', 
               'rgdal', 'gsubfn', 'RColorBrewer', 'prevR', 'repmis', 
               'sandwich', 'msm', 'ggplot2', 'lmtest', 'MASS', 'pscl', 'stargazer',
-              'AER', 'shiny', 'leaflet', 'stats', 'knitr', 'ggplot2', 'ggthemes')
+              'AER', 'shiny', 'leaflet', 'stats', 'knitr', 'ggplot2', 'ggthemes',
+              'stringi')
 
 for (p in packages) {
   if (p %in% installed.packages()[,1]) require(p, character.only=T)
@@ -47,6 +48,7 @@ for (p in packages) {
 repmis::LoadandCite(packages, file = 'Rpackages.bib')
 
 ### Load libraries
+library(stringi)
 library(ggthemes)
 library(AER)
 library(Hmisc)
