@@ -2,6 +2,9 @@
 
 by Christopher Cosler and Lisa Schmid
 
+<a href="https://rawgit.com/ChristopherCosler/CSSR_FinalProject/master/Final_Presentation.html" target="_blank"> Presentation of our project </a>
+
+
 Any feedback, comments, and ideas are encouraged. Please send them to <a href="mailto:c.cosler@mpp.hertie-school.org">Christopher Cosler</a> or <a href="mailto:lisa.schmid@mpp.hertie-school.org">Lisa Schmid</a> or submit a pull request.
 
 This is not the final paper. All the work included in this repository is work in progress and should be seen as such!
