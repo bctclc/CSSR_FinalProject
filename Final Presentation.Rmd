@@ -64,9 +64,8 @@ Furthermore, we control for
 - German Federal Statistical Office ^[https://www-genesis.destatis.de/genesis/online]
 - German Regional Statistical Offices ^[https://www.regionalstatistik.de/genesis/online]
 
-# Descriptive Statistics
-Dependent Variable
-```{r, echo=FALSE, fig.align='center', fig.cap="Refugee Initiatives per District", fig.width=8, fig.height=6}
+# Dependent variable
+```{r, echo=FALSE, fig.align='center', fig.cap="Refugee Initiatives per District", fig.width=8, fig.height=5.5}
 plot(histogram)
 ```
 
@@ -163,42 +162,55 @@ legend("right", fill = colours, legend = levels)
 points(Coordinates$Longitude, Coordinates$Latitude, col = adjustcolor("blue",0.4),pch = 19)
 ```
 
-# Predicted Probabilities
-East-West Divide
+# Regression 
+<img src="Pictures Presentation/Regression.jpg" height="500x" width="400px" />
+
+# Predicted Number of Initiatives
+
+# East-West Divide
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_eastwest
 ```
 
-# Predicted Probabilities
-Age
+# Age
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_age_eastwest
 ```
 
-# Predicted Probabilities
-GDP per capita
+# GDP per capita
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_GDP_eastwest
 ```
 
-# Predicted Probabilities
-Gender 
+# Gender 
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_gender_eastwest
 ```
 
-# Predicted Probabilities
-Voter Turnout
+# Voter Turnout
 ```{r, echo=FALSE, fig.align='center', fig.cap="Histogram of refugee", fig.width=8, fig.height=5.5}
 plot_turnout_eastwest
 ```
 
-# Conclusion
-We find positive evidence for the following hypotheses:
+# Conclusion - Suprising
 
--
--
--
+- Negative effect age
+- Negative effect male ratio
+- High number of refugee initiatives in East-Germany
+
+# Conclusion - Expected
+
+- Positive effect turnout
+- Positive effect GDP (weak)
+- Positive effect cities (weak)
+
+
+# Careful!
+
+Do not make conclusions about individuals
+
+# Play with it
+![](Pictures Presentation/ShinyApp.jpg)
 
 # Thank you for your attention!
 ![](Pictures Presentation/RefugeesLogo.jpg)
